@@ -8,3 +8,5 @@ Will include:
 - Accessability considerations
 - GDPR and legal requirements
 - An evaluation of the completed application and process
+
+Justify decision to develop mobile/desktop first
