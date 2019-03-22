@@ -1,0 +1,9 @@
+:root
+{
+    --site_title: "sldgkh";
+}
+
+#site_title
+{
+    content: var(--site_title);
+}
