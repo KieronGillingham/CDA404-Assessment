@@ -26,3 +26,4 @@ TBC
 
 ## Evaluation
 - I struggled during the design phase
+- Justify decision to develop mobile first
