@@ -1,9 +1,84 @@
 :root
 {
-    --site_title: "sldgkh";
+    --site_title: "Oneless - Timetables for students";
+
+    /* Palette */
+    --white: #f9f9f9;
+    --dark-grey: #4d4d4d;
+    --light-brown: #deaa87;
+    --dark-brown: #d38d5f;
+    --yellow: #ffcc00;
+    --green: #8dd35f;
+    --pink:#de87aa;
+}
+
+body
+{
+    margin:0;
+    padding:0;
+    background-color: var(--light-brown);
+}
+
+wrapper
+{
+    width: 100%;
+    margin: 0;
+}
+
+header, main, footer
+{
+    display: inline-block;
+    padding: 0 calc((100% - 800px)/2);
+    width: 800px;
+}
+
+main
+{
+    background-color: var(--white);
+    
 }
 
 #site_title
 {
     content: var(--site_title);
+}
+
+nav
+{
+    
+}
+
+nav li
+{
+    background-color: var(--yellow);
+    padding: 8px;
+    width: 10%;
+    list-style: none;
+    margin: 10px;
+}
+footer li
+{
+    padding: 8px;
+    width: 10%;
+    list-style: none;
+    margin: 10px;
+    float: left;
+}
+
+img
+{
+    background-color: var(--green);
+    width: 200px;
+    height: 100px;
+}
+
+header
+{
+    background-color: var(--yellow);
+    border-bottom: 15px solid var(--dark-grey);
+}
+
+h1
+{
+    color: var(--white);
 }
