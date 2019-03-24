@@ -19,6 +19,12 @@ body
     background-color: var(--light-brown);
 }
 
+.main_logo
+{
+    height: 60px;
+    width: 60px;
+}
+
 wrapper
 {
     width: 100%;
@@ -36,6 +42,8 @@ main
 {
     background-color: var(--white);
     width: 80%;
+    padding: 30px 8%;
+    margin-top:-65px;
 }
 
 #site_title
@@ -54,8 +62,25 @@ nav
     background-color: var(--dark-grey);
     color: var(--white);
     float: right;
-    display: block;
     width: 200px;
+    height: 70px;
+    margin: 10px;
+    overflow:auto;
+}
+#user_panel img
+{
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    float: right;
+}
+#user_panel p
+{
+    width: 40px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    float: right;
 }
 
 nav li
@@ -66,6 +91,11 @@ nav li
     list-style: none;
     margin: 10px;
 }
+footer
+{
+    background-color: var(--dark-grey);
+}
+
 footer li
 {
     padding: 8px;
@@ -86,6 +116,7 @@ header
 {
     background-color: var(--yellow);
     border-bottom: 15px solid var(--dark-grey);
+    height: 180px;
 }
 
 h1
