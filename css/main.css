@@ -20,11 +20,13 @@ body
     background-color: var(--light-brown);
 }
 
-.main_logo
+.quick_start_button
 {
-    height: 60px;
-    width: 60px;
+    width: 35%;
+    height: 35%;
 }
+
+
 
 wrapper
 {
@@ -86,7 +88,7 @@ nav li
 {
     background-color: var(--yellow);
     padding: 8px;
-    width: 100%;
+    width: 50%;
     list-style: none;
     margin: 10px;
 }
@@ -106,7 +108,6 @@ footer li
 
 img
 {
-    background-color: var(--green);
     width: 200px;
     height: 100px;
 }
@@ -115,15 +116,34 @@ header
 {
     background-color: var(--yellow);
     border-bottom: 15px solid var(--dark-grey);
-    height: 180px;
+    height: 100vh;
+    margin-top: 0;
+    padding: 0;
+}
+
+header::before
+{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 38vh;
+    background-color: var(--white);
+    border-bottom: 15px solid var(--dark-grey);
 }
 
 h1
 {
-    color: var(--white);
-    width: 50%;
-    float: left;
+    color: var(--dark-grey);
+    width: 100%;
+    text-align: center;
+    margin-top: -30vh;
+}
 
+.main_logo
+{
+    width: 50vw;
+    height: auto;
+    margin: -37vw 25vw 0; 
 }
 
 /* ------------------------------------------Desktop------------------------------------------ */
