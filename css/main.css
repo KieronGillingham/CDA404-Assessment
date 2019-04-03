@@ -18,6 +18,7 @@ body
     margin:0;
     padding:0;
     background-color: var(--light-brown);
+    width: 100%
 }
 
 .quick_start_button
@@ -34,9 +35,79 @@ wrapper
     margin: 0;
 }
 
+
+#site_title
+{
+    content: var(--site_title);
+}
+
+#user_panel
+{
+    display: none;
+}
+
+
+
+header
+{
+    background-color: var(--yellow);
+    border-bottom: 15px solid var(--dark-grey);
+    height: 100vh;
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header::before
+{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 38vh;
+    background-color: var(--white);
+    border-bottom: 15px solid var(--dark-grey);
+}
+
+h1
+{
+    color: var(--dark-grey);
+    width: 100%;
+    text-align: center;
+    margin-top: -60vw;
+}
+
+.main_logo
+{
+    width: 50vw;
+    height: auto;
+    margin: -37vw 25vw 0; 
+}
+
+#home_buttons
+{
+    margin: auto;
+    width: 75%;
+}
+
+#sign_in, #quick_start
+{
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    float: left;
+
+}
+
+#home_buttons img
+{
+    width: 100%;
+    height: auto;
+}
+
 #column
 {
-    margin: 2%;
+    margin: 0 6px;
     width: 96%;
     padding: 0;
 }
@@ -48,42 +119,21 @@ main
     padding: 0;
 }
 
-#site_title
+h2
 {
-    content: var(--site_title);
+    padding: 40px ;
+    text-align: center;
+}
+
+.quick_start_main:first-of-type
+{
+    display: none;
 }
 
 nav
 {
     width: 100%;
 }
-
-#user_panel
-{
-    background-color: var(--dark-grey);
-    color: var(--white);
-    float: right;
-    width: 200px;
-    height: 70px;
-    margin: 10px;
-    overflow:auto;
-}
-#user_panel img
-{
-    width: 60px;
-    height: 60px;
-    margin: 5px;
-    float: right;
-}
-#user_panel p
-{
-    width: 40px;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-    float: right;
-}
-
 nav li
 {
     background-color: var(--yellow);
@@ -104,46 +154,6 @@ footer li
     list-style: none;
     margin: 10px 0px;
     float: left;
-}
-
-img
-{
-    width: 200px;
-    height: 100px;
-}
-
-header
-{
-    background-color: var(--yellow);
-    border-bottom: 15px solid var(--dark-grey);
-    height: 100vh;
-    margin-top: 0;
-    padding: 0;
-}
-
-header::before
-{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 38vh;
-    background-color: var(--white);
-    border-bottom: 15px solid var(--dark-grey);
-}
-
-h1
-{
-    color: var(--dark-grey);
-    width: 100%;
-    text-align: center;
-    margin-top: -30vh;
-}
-
-.main_logo
-{
-    width: 50vw;
-    height: auto;
-    margin: -37vw 25vw 0; 
 }
 
 /* ------------------------------------------Desktop------------------------------------------ */
@@ -175,6 +185,11 @@ h1
         width: 80%;
         padding: 30px 8%;
         margin-top:-65px;
+    }
+
+    .quick_start_main:first-of-type
+    {
+        display: inline;
     }
 
     #site_title
@@ -249,6 +264,10 @@ h1
         border-bottom: 15px solid var(--dark-grey);
         height: 180px;
     }
+    header::before
+    {
+        display: none;
+    }
 
     h1
     {
@@ -256,5 +275,10 @@ h1
         width: 50%;
         float: left;
 
+    }
+
+    #sign_in, #quick_start
+    {
+        display: none;
     }
 }
