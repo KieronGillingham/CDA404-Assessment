@@ -16,6 +16,7 @@ There are many students who struggle with balancing their workload and keeping o
 TBC
 
 ## Colour Palette
+I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright highlights.
 <img src="images/palette.png" width=40%>
 
 ## Accessability
@@ -27,3 +28,4 @@ TBC
 ## Evaluation
 - I struggled during the design phase
 - Justify decision to develop mobile first
+- The website requires a better way of implementing resusable components such as the header and footer

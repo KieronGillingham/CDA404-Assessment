@@ -26,9 +26,12 @@ body
     font-family: 'K2D', sans-serif;
 }
 
-img
+.banner_img
 {
-    background-color: var(--green);
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
 }
 
 .quick_start_button
@@ -121,18 +124,19 @@ h1
 
 #column
 {
-    margin: 0 2.5%;
+    margin: 0px 2.5% 0;
     width: 95%;
-    padding: 0;
+    padding: 64px 0 0;
 }
 
 main
 {
     background-image: var(--paper);
     width: 100%;
-    padding: 0;
+
     overflow-y: auto;
     box-shadow: 5px 5px black;
+    margin: 0;
 }
 
 h2
@@ -165,21 +169,45 @@ main p
     color: var(--white);
 }
 
+main img
+{
+    margin: 10%;
+    height: auto;
+    width: 80%;
+}
+
 nav
 {
     width: 100%;
 }
 nav li
 {
-    background-color: var(--yellow);
-    padding: 8px;
-    width: 50%;
+    padding: 8px 5%;
+    width: 90%;
     list-style: none;
-    margin: 10px;
+    margin: 10px 0;
+    box-shadow: 5px 5px black;
 }
+nav li:nth-child(3n+1)
+{
+    background-color: var(--yellow);
+}
+nav li:nth-child(3n+2)
+{
+    background-color: var(--green);
+}
+nav li:nth-child(3n)
+{
+    background-color: var(--pink);
+}
+
+
 footer
 {
     background-color: var(--dark-grey);
+    height: 200px;
+    bottom: 0px;
+    width: 100%;
 }
 
 footer li
@@ -273,8 +301,11 @@ footer li
         list-style: none;
         margin: 10px;
     }
+
     footer
     {
+        width: 100%;
+        height: 240px;
         background-color: var(--dark-grey);
     }
 
