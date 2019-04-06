@@ -56,8 +56,6 @@ wrapper
     display: none;
 }
 
-
-
 header
 {
     
@@ -118,6 +116,8 @@ h1
     width: 100%;
     height: auto;
 }
+
+/* +++ Main page content +++ */
 
 #column
 {
@@ -196,6 +196,7 @@ footer li
 
 @media only screen and (min-width: 650px)
 {
+
     .main_logo
     {
         height: 60px;
@@ -292,6 +293,8 @@ footer li
         width: 200px;
         height: 100px;
     }
+
+    /* +++ Desktop Header +++ */
 
     header
     {
