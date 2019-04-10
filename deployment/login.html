@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
     <link rel="stylesheet" href="css/abridged_header.css" type="text/css"/>
+    <script src="scripts/main.js"></script>
+
     <title>Oneless Log-in</title>
 </head>
 <body>
@@ -23,91 +29,15 @@
                     <p>Sign-in</p>
                 </section>
             </header>
-            <script type="text/javascript">
-                console.log("Script start.");
-
-                var apiKey = 'AIzaSyANFAybgXxN1N8J0Y9y_AaH0k7abtpyBp8';
-                var discoveryDocs = ["https://people.googleapis.com/$discovery/rest?version=v1"];
-                var clientId = '791596452369-1s4s8irhm3k15onmbjff5slbr36epa84.apps.googleusercontent.com';
-                var scopes = 'profile';
-                var authorizeButton = document.getElementById('authorize-button');
-                var signoutButton = document.getElementById('signout-button');
-
-                function handleClientLoad() {
-                    // Loads the client library and the auth2 library together for efficiency.
-                    // Loading the auth2 library is optional here since `gapi.client.init` function will load
-                    // it if not already loaded. Loading it upfront can save one network request.
-                    gapi.load('client:auth2', initClient);
-                    console.log("Finish gapi loading.");
-                }
-
-                function initClient() {
-                    // Initialize the client with API key and People API, and initialize OAuth with an
-                    // OAuth 2.0 client ID and scopes (space delimited string) to request access.
-                    console.log("Begin client initalization.");
-                    gapi.client.init({
-                        apiKey: apiKey,
-                        discoveryDocs: discoveryDocs,
-                        clientId: clientId,
-                        scope: scopes
-                    }).then(function () {
-                        // Listen for sign-in state changes.
-                        console.log ("getAuthInstance");
-                        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-                        // Handle the initial sign-in state.
-                        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-
-                        authorizeButton.onclick = handleAuthClick;
-                        signoutButton.onclick = handleSignoutClick;
-
-                        console.log("Finish client initalization.");
-                    });
-                    
-                }
-
-                function updateSigninStatus(isSignedIn) {
-                    if (isSignedIn) {
-                        authorizeButton.style.display = 'none';
-                        signoutButton.style.display = 'block';
-                        makeApiCall();
-                    } else {
-                        authorizeButton.style.display = 'block';
-                        signoutButton.style.display = 'none';
-                    }
-                }
-                function handleAuthClick(event) {
-                    gapi.auth2.getAuthInstance().signIn();
-                }
-                function handleSignoutClick(event) {
-                    gapi.auth2.getAuthInstance().signOut();
-                }
-                // Load the API and make an API call.  Display the results on the screen.
-                function makeApiCall() {
-                    gapi.client.people.people.get({
-                        'resourceName': 'people/me',
-                        'requestMask.includeField': 'person.names'
-                    }).then(function (resp) {
-                        var p = document.createElement('p');
-                        var name = resp.result.names[0].givenName;
-                        p.appendChild(document.createTextNode('Hello, ' + name + '!'));
-                        document.getElementById('content').appendChild(p);
-                    });
-                }
-            </script>
-    
-
-            <script async defer src="https://apis.google.com/js/api.js"
-            onload="this.onload=function(){};handleClientLoad()"
-            onreadystatechange="if (this.readyState === 'complete') this.onload()">
-                console.log("async");
-            </script>
               
             <main>
                 <p><br><br><br><br><br><br><br><br></p>
                 <button id="authorize-button" style="display: none;">Authorize</button>
                 <button id="signout-button" style="display: none;">Sign Out</button>
                 <button id="client-load-button" onclick="handleClientLoad()">Begin</button>
+
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                
             </main>
             <footer>
                 <ul>

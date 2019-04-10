@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-            <meta name="google-signin-scope" content="profile email">
-            <meta name="google-signin-client_id" content="791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com">
-            <script src="https://apis.google.com/js/platform.js" async defer></script>
-
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +19,8 @@
                 <h1>Tourbill</h1>
                 <img class="main_logo" src="images/logo.png" alt="Logo">
                 <div id="home_buttons">
-                    <button id="sign_in"><img src="images/user_icon.png" alt="User icon"></button>
-                    <button id="quick_start"><img src="images/forward_arrow.png" alt="User icon"></button>      
+                    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon"></a>
+                    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="User icon"></a>      
                 </div> <!-- /home_buttons -->
                 <section id="user_panel">
                     <img src="images/user_icon.png" alt="User icon">
@@ -44,31 +42,6 @@
                     <img src="images/placeholder.png" alt="Calculated timetable.">
                     <p>Calculate your timetable</p>
                     <button class="quick_start_main">Get Started</button>
-
-                    <div class="g-signin2" data-onsuccess="onSignIn">hjk</div>
-                    
-
-                          
-
-                          <script>
-                            function onSignIn(googleUser) {
-                              // Useful data for your client-side scripts:
-                              var profile = googleUser.getBasicProfile();
-                              console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-                              console.log('Full Name: ' + profile.getName());
-                              console.log('Given Name: ' + profile.getGivenName());
-                              console.log('Family Name: ' + profile.getFamilyName());
-                              console.log("Image URL: " + profile.getImageUrl());
-                              console.log("Email: " + profile.getEmail());
-                      
-                              // The ID token you need to pass to your backend:
-                              var id_token = googleUser.getAuthResponse().id_token;
-                              console.log("ID Token: " + id_token);
-                            }
-                          </script>
-
-
-
                 </main>
                 <nav>
                     <ul>
