@@ -1,79 +1,81 @@
 @import url('https://fonts.googleapis.com/css?family=K2D:300');
 
-:root
+@media only screen and (max-width: 650px)
 {
-    --site_title: "Oneless - Timetables for students";
+    :root
+    {
+        --site_title: "Oneless - Timetables for students";
 
-    /* Palette */
-    --white: #f9f9f9;
-    --dark-grey: #4d4d4d;
-    --light-brown: #deaa87;
-    --dark-brown: #d38d5f;
-    --yellow: #ffcc00;
-    --green: #8dd35f;
-    --pink: #de87aa;
-    --paper: linear-gradient(90deg, var(--white), #e9e9e9, #e9e9e9, var(--white));
-    
-}
+        /* Palette */
+        --white: #f9f9f9;
+        --dark-grey: #4d4d4d;
+        --light-brown: #deaa87;
+        --dark-brown: #d38d5f;
+        --yellow: #ffcc00;
+        --green: #8dd35f;
+        --pink: #de87aa;
+        --paper: linear-gradient(90deg, var(--white), #e9e9e9, #e9e9e9, var(--white));
+    }
 
-header
-{
-    background-color: var(--dark-grey);
-    background-image: none;
-    border-bottom: 0;
-    height: 64px;
-    margin-top: 0;
-    padding: 0;
-    width: 100%;
-    position: fixed;
+    header
+    {
+        background-color: var(--dark-grey);
+        background-image: none;
+        border-bottom: 0;
+        height: 64px;
+        margin-top: 0;
+        padding: 0;
+        width: 100%;
+        position: fixed;
+    }
 
-}
+    .main_logo
+    {
+        width: auto;
+        height: 48px;
+        margin: 8px; 
+    }
 
-.main_logo
-{
-    width: auto;
-    height: 48px;
-    margin: 8px; 
-}
+    header::before, h1, #home_buttons
+    {
+        display: none;
+    }
 
-header::before, h1, #home_buttons
-{
-    display: none;
-}
+    #user_panel
+    {
+        display: block;
+        background-color: transparent;
+        color: var(--white);
+        float: right;
+        width: calc(100% - 64px);
+        height: 64px;
+        margin: 0;
+        overflow: hidden;
+    }
 
-#user_panel
-{
-    display: block;
-    background-color: transparent;
-    color: var(--white);
-    float: right;
-    width: calc(100% - 64px);
-    height: 64px;
-    margin: 0;
-    overflow: hidden;
-}
-#user_panel img
-{
-    width: 48px;
-    height: 48px;
-    margin: 8px;
-    float: right;
-}
-#user_panel p
-{
-    display: table-cell;
-    width: calc(100% - 96px);
-    height: 48px;
-    margin: 8px 0;
-    float: right;
-    text-align: right;
-    vertical-align: middle;
-    line-height: 48px;
-    overflow: hidden;
-}
+    #user_panel img
+    {
+        width: 48px;
+        height: 48px;
+        margin: 8px;
+        float: right;
+    }
 
+    #user_panel p
+    {
+        display: table-cell;
+        width: calc(100% - 96px);
+        height: 48px;
+        margin: 8px 0;
+        float: right;
+        text-align: right;
+        vertical-align: middle;
+        line-height: 48px;
+        overflow: hidden;
+    }
 
-#column
-{
-    padding-top: 64px;
+    #column
+    {
+        padding-top: 64px;
+    }
 }
