@@ -90,18 +90,24 @@ h1
 
 #home_buttons
 {
-    margin: 2vh auto;
+    margin: 5vh auto;
     width: 56vh;
-    height: 10vh;
+    overflow: auto;
+    max-width: 60vw;
 }
 
 #sign_in, #quick_start
 {
-    margin: 2.5vh;
+    margin: 0;
     padding: 0;
-    width: 23vh;
-    height: 23vh;
+    width: 40%;
+    height: auto;
     float: left;
+}
+
+#quick_start
+{
+    float: right;
 }
 
 #home_buttons img
@@ -122,10 +128,11 @@ main
 {
     background-image: var(--paper);
     width: 100%;
-
+    padding: 0;
     overflow-y: auto;
-    box-shadow: 5px 5px black;
+    box-shadow: 5px 5px 3px var(--dark-grey);
     margin: 0;
+    min-height: 50vh;
 }
 
 h2
@@ -187,16 +194,17 @@ nav li
     list-style: none;
     margin: 10px 0;
     box-shadow: 5px 5px black;
+    background-color: inherit;
 }
-nav li:nth-child(3n+1)
+nav a:nth-child(3n+1)
 {
     background-color: var(--yellow);
 }
-nav li:nth-child(3n+2)
+nav a:nth-child(3n+2)
 {
     background-color: var(--green);
 }
-nav li:nth-child(3n)
+nav a:nth-child(3n)
 {
     background-color: var(--pink);
 }
@@ -208,12 +216,22 @@ footer
     height: 200px;
     bottom: 0px;
     width: 100%;
+    color: var(--white);
+}
+
+footer ul
+{
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    padding: 0;
 }
 
 footer li
 {
-    padding: 8px;
-    width: 10%;
+    padding: 0;
+    width: calc(100%/3);
+    text-align: center;
     list-style: none;
     margin: 10px 0px;
     float: left;
@@ -227,8 +245,9 @@ footer li
 
     .main_logo
     {
-        height: 60px;
-        width: 60px;
+        height: 100px;
+        width: 100px;
+        margin: 0;
     }
 
     #user_panel
@@ -246,6 +265,11 @@ footer li
         display: inline-block;
         padding: 0 calc((100% - 650px)/2);
         width: 650px;
+    }
+
+    header
+    {
+        padding-top: 50px;
     }
 
     main
@@ -280,53 +304,43 @@ footer li
 
     #user_panel
     {
+        display: block;
         background-color: var(--dark-grey);
         color: var(--white);
         float: right;
-        width: 200px;
-        height: 70px;
-        margin: 10px;
-        overflow:auto;
+        width: 220px;
+        height: 64px;
+        margin: 0;
+        overflow: hidden;
     }
+
     #user_panel img
     {
-        width: 60px;
-        height: 60px;
-        margin: 5px;
+        width: 48px;
+        height: 48px;
+        margin: 8px;
         float: right;
     }
+
     #user_panel p
     {
-        width: 40px;
-        height: 60px;
-        margin: 0;
-        padding: 0;
+        display: table-cell;
+        width: calc(100% - 96px);
+        height: 48px;
+        margin: 8px 0;
         float: right;
+        text-align: right;
+        vertical-align: middle;
+        line-height: 48px;
+        overflow: hidden;
     }
 
     nav li
     {
-        background-color: var(--yellow);
         padding: 8px;
         width: 100%;
         list-style: none;
         margin: 10px;
-    }
-
-    footer
-    {
-        width: 100%;
-        height: 240px;
-        background-color: var(--dark-grey);
-    }
-
-    footer li
-    {
-        padding: 8px;
-        width: 10%;
-        list-style: none;
-        margin: 10px 0px;
-        float: left;
     }
 
     /* +++ Desktop Header +++ */
@@ -337,6 +351,7 @@ footer li
         border-bottom: 15px solid var(--dark-grey);
         height: 180px;
     }
+    
     header::before
     {
         display: none;
@@ -347,11 +362,19 @@ footer li
         color: var(--white);
         width: 50%;
         float: left;
-
+        margin: 0;
     }
 
-    #sign_in, #quick_start
+    #home_buttons
     {
         display: none;
+    }
+}
+
+@media only screen and (max-width: 300px)
+{
+    footer li
+    {
+        width: 100%;
     }
 }
