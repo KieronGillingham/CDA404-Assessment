@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com">
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content="Keep on top of life. Create a timetable around what you need to do.">
         <title class="site_title">Oneless - Time management for students</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css" />
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <script src="scripts/main.js"></script>
     </head>
-    <body>
-        
+    <body onload="onLoad()">
         <wrapper>
             <header>
                 <h1>Tourbill</h1>
@@ -22,7 +20,7 @@
                     <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon"></a>
                     <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="User icon"></a>      
                 </div> <!-- /home_buttons -->
-                <section id="user_panel">
+                <section id="user_panel" onclick="clickUser">
                     <img src="images/user_icon.png" alt="User icon">
                     <p>Sign-in</p>
                 </section>
@@ -45,11 +43,11 @@
                 </main>
                 <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li>My Timetable</li>
-                        <li>Health</li>
-                        <li>How to?</li>
-                        <li>About Us</li>
+                        <a href="/user_dash.html"><li>Dashboard</li></a>
+                        <a href="?"><li>My Timetable</li></a>
+                        <a href="?"><li>Health</li></a>
+                        <a href="?"><li>How to?</li></a>
+                        <a href="/about.html"><li>About Us</li></a>
                     </ul>
                 </nav>
             </div> <!-- /column -->

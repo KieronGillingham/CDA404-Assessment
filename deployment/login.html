@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <head>
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="css/abridged_header.css" type="text/css"/>
-    <script src="scripts/main.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <link rel="stylesheet" href="css/abridged_header.css" type="text/css"/>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/signinRedirect.js"></script>
 
-    <title>Oneless Log-in</title>
-</head>
-<body>
+        <title>Tourbill Log-in</title>
+    </head>
     <body>
         <wrapper>
             <header>
-                <h1>Oneless</h1>
+                <h1>Tourbill</h1>
                 <a href="index.html"><img class="main_logo" src="images/logo.png" alt="Logo"></a>
                 <div id="home_buttons">
                     <button id="sign_in"><img src="images/user_icon.png" alt="User icon"></button>
@@ -29,16 +27,25 @@
                     <p>Sign-in</p>
                 </section>
             </header>
-              
-            <main>
-                <p><br><br><br><br><br><br><br><br></p>
-                <button id="authorize-button" style="display: none;">Authorize</button>
-                <button id="signout-button" style="display: none;">Sign Out</button>
-                <button id="client-load-button" onclick="handleClientLoad()">Begin</button>
+            <div id="column"> 
+                <main>
+                    <section id="sign-in-box">
+                        <h2>Sign-in with Google</h2>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </section>
+                </main>
+            <nav>
+                    <ul>
+                        <a href="/user_dash.html"><li>Dashboard</li></a>
+                        <a href="?"><li>My Timetable</li></a>
+                        <a href="?"><li>Health</li></a>
+                        <a href="?"><li>How to?</li></a>
+                        <a href="/about.html"><li>About Us</li></a>
+                    </ul>
+                </nav>
+            </div> <!-- /column -->
+            
 
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                
-            </main>
             <footer>
                 <ul>
                     <li>Legal</li>
@@ -48,5 +55,4 @@
             </footer>
         </wrapper>
     </body>
-</body>
 </html>
