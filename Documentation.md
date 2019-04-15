@@ -1,7 +1,12 @@
 # Documentation
-Documentation for Assessment 1
+Documentation for Web Technologies (Lvl 4) - Assessment 1
 
-Will include:
+Kieron Gillingham\
+Southampton Solent University - 2019
+
+---
+
+## Contents
 - The problem to be solved
 - Wireframe of design
 - Colour scheme choice and justification
@@ -9,24 +14,49 @@ Will include:
 - GDPR and legal requirements
 - An evaluation of the completed application and process
 
+---
+
 ## Background
 There are many students who struggle with balancing their workload and keeping organised. This application aims to provide a system to help students manage their time effectively.
 
+The principal idea is to analyse a students timetable and calculate how much independent study needs to be done for each unit/project. The application would then integrate with the Google calender API to create a weekly timetable for the student.
+
+---
+
 ## Wireframes
-The full wireframes can be found in the repository./
-<img src="doc_images/wireframe_preview.png" width=40%>
+Before beginning production of the website, I used an online tool called [Mockingbird](https://gomockingbird.com/) to create wireframes of the main pages.
+The full wireframes can be found [here](wireframes.pdf).
+
+<img src="doc_images/wireframe_preview.png" width=80%>
+
+*Note: The wireframes were created before the name of the project was finalized.*
+
+---
 
 ## Colour Palette
-I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright highlights./
+I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright accents, similar to what would be seen in a highlighted notebook.
+
 <img src="doc_images/palette.png" width=40%>
+
+---
 
 ## Accessability
 TBC
 
+---
+
 ## Legal Considerations
-- The application is not a paid service and does not sell products.
+The application is not a paid service and does not sell products. It does however, make use of the google sign-in api, which requires user consent and a suitable privacy policy regarding the handling of user data.
+
+A link to the privacy policy is located in the footer of each page.
+
+---
 
 ## Evaluation
 - I struggled during the design phase
-- Justify decision to develop mobile first
-- The website requires a better way of implementing resusable components such as the header and footer
+
+I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
+
+There are many elements shared across the website it is desireable to keep uniform. Given more time I would investigate a better way of implementing resusable components such as the header and footer.
+
+I 
