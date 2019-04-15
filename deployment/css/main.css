@@ -10,8 +10,11 @@
     --light-brown: #deaa87;
     --dark-brown: #d38d5f;
     --yellow: #ffcc00;
+    --dark-yellow: #d4aa00;
     --green: #8dd35f;
+    --dark-green: #5aa02c;
     --pink: #de87aa;
+    --dark-pink: #d35f8d;
     --paper: linear-gradient(90deg, var(--white), #e9e9e9, #e9e9e9, var(--white));
     
 }
@@ -194,27 +197,32 @@ main img
 nav
 {
     width: 100%;
+    overflow: auto;
+    margin: 10px 0;
 }
 nav li
 {
     padding: 8px 5%;
-    width: 90%;
+    width: 80%;
     list-style: none;
-    margin: 10px 0;
-    box-shadow: 5px 5px black;
-    background-color: inherit;
+    margin: 3px 0;
+    border-bottom: 5px solid var(--dark-grey);
+    float: right;
 }
-nav a:nth-child(3n+1)
+nav a:nth-child(3n+1)>li
 {
     background-color: var(--yellow);
+    border-right: 8px solid var(--dark-yellow);
 }
-nav a:nth-child(3n+2)
+nav a:nth-child(3n+2)>li
 {
     background-color: var(--green);
+    border-right: 8px solid var(--dark-green);
 }
-nav a:nth-child(3n)
+nav a:nth-child(3n)>li
 {
     background-color: var(--pink);
+    border-right: 8px solid var(--dark-pink);
 }
 
 
@@ -244,6 +252,15 @@ footer li
     list-style: none;
     margin: 10px 0px;
     float: left;
+}
+
+footer p
+{
+    font-size: 12px;
+    bottom: 3px;
+    text-align: center;
+    position: relative;
+    width: 100%;
 }
 
 /* ------------------------------------------Desktop------------------------------------------ */
