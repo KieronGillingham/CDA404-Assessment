@@ -13,11 +13,11 @@ Will include:
 There are many students who struggle with balancing their workload and keeping organised. This application aims to provide a system to help students manage their time effectively.
 
 ## Wireframes
-TBC
+<img src="doc_images/wireframe_preview.png" width=40%>
 
 ## Colour Palette
 I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright highlights.
-<img src="images/palette.png" width=40%>
+<img src="doc_images/palette.png" width=40%>
 
 ## Accessability
 TBC
