@@ -58,5 +58,3 @@ A link to the privacy policy is located in the footer of each page.
 I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
 
 There are many elements shared across the website it is desireable to keep uniform. Given more time I would investigate a better way of implementing resusable components such as the header and footer.
-
-I 
