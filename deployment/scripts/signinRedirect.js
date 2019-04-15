@@ -1,7 +1,17 @@
-function onSignIn()
+function onLoad()
 {
-    //if (id_token != null)
-    //    window.location.href = "/user_dash.html";
-    //else
-    //    window.location.href = "/login.html";
+    console.log("signinRedirect")
+
+    gapi.load('auth2', function()
+    {
+        auth2 = gapi.auth2.init(clientConfig);
+        auth2.then(redirect,authError);
+    });
 }
+
+function redirect()
+{
+    if(auth2.isSignedIn.get())
+        window.location.href = "/user_dash.html";
+}
+    

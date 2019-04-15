@@ -2,12 +2,14 @@ var auth2;
 
 var clientConfig = 
 {
-    scope: 'profile email',
-    client_id: '791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com'
+    scope: "profile email",
+    client_id: "791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com"
 };
 
+// init is called when the Google platform library is loaded
 function init()
 {
+    // Load the auth2 module from the library
     gapi.load('auth2', function()
     {
         auth2 = gapi.auth2.init(clientConfig);
@@ -21,19 +23,8 @@ function onLoad()
     console.log("onLoad");
     setCurrentUser();
     userpanel = document.getElementById("user_panel");
-    console.log(userpanel);
-    userpanel.onclick = function()
-    {
-        console.log("click");
-        window.location.href = "/login.html";
-    };
-}
-
-function onSignIn(googleUser)
-{
-    // Useful data for your client-side scripts:
-    //var profile = googleUser.getBasicProfile();
-    //console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    userpanel.onclick = clickUser;
+    
 }
 
 function setCurrentUser()
@@ -73,8 +64,9 @@ function setCurrentUser()
 
 function clickUser()
 {
-    console.log("Clicked user panel");
-}
+    console.log("click");
+    window.location.href = "/login.html";
+};
 
 function authError(err)
 {
