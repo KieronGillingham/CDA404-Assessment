@@ -20,6 +20,13 @@ function onLoad()
 {
     console.log("onLoad");
     setCurrentUser();
+    userpanel = document.getElementById("user_panel");
+    console.log(userpanel);
+    userpanel.onclick = function()
+    {
+        console.log("click");
+        window.location.href = "/login.html";
+    };
 }
 
 function onSignIn(googleUser)
@@ -31,7 +38,17 @@ function onSignIn(googleUser)
 
 function setCurrentUser()
 {
-    if (auth2.isSignedIn.get())
+    if (!auth2)
+    {
+        console.log("No auth2 found.");
+        return;
+    }
+    else if (!auth2.isSignedIn.get())
+    {
+        console.log("No user detected.");
+        return;
+    }
+    else
     {
         console.log("Signed in user detected.");
 
@@ -51,10 +68,6 @@ function setCurrentUser()
         var user_panel = document.getElementById("user_panel")
         user_panel.children[1].innerHTML = profile.getName();
         user_panel.children[0].src = profile.getImageUrl();
-    }
-    else
-    {
-        console.log("No user detected.");
     }
 }
 
