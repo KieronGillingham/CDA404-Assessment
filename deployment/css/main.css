@@ -145,6 +145,17 @@ h2
     text-align: center;
 }
 
+h3
+{
+    margin: auto;
+    padding: 60px 0 20px;
+    text-align: left;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+
+
 .quick_start_main:first-of-type
 {
     display: none;
@@ -192,6 +203,16 @@ main img
     width: 120px;
     align-content: center;
     text-align: center;
+}
+
+form textarea
+{
+    width: 100%;
+}
+
+form [type="submit"]
+{
+    float: left;
 }
 
 nav
@@ -266,7 +287,7 @@ footer p
 /* ------------------------------------------Desktop------------------------------------------ */
 /* ########################################################################################### */
 
-@media only screen and (min-width: 650px)
+@media only screen and (min-width: 900px)
 {
 
     .main_logo
@@ -289,8 +310,8 @@ footer p
     header, #column, footer
     {
         display: inline-block;
-        padding: 0 calc((100% - 650px)/2);
-        width: 650px;
+        padding: 0 calc((100% - 900px)/2);
+        width: 900px;
     }
 
     header
@@ -303,8 +324,9 @@ footer p
         background-color: var(--white);
         width: 80%;
         padding: 30px 0;
-        margin-top:-65px;
+        margin: -65px 0 50px;
         box-shadow: 2px 5px 3px 1px var(--dark-grey);
+        float: left;
     }
 
     .quick_start_main:first-of-type
@@ -323,11 +345,7 @@ footer p
         content: var(--site_title);
     }
 
-    nav
-    {
-        width: 20%;
-        float: right;
-    }
+    
 
     #user_panel
     {
@@ -335,10 +353,9 @@ footer p
         background-color: var(--dark-grey);
         color: var(--white);
         float: right;
-        width: 220px;
+        width: 30%;
         height: 64px;
         margin: 0;
-        overflow: hidden;
     }
 
     #user_panel img
@@ -362,12 +379,26 @@ footer p
         overflow: hidden;
     }
 
+    nav
+    {
+        width: 20%;
+        float: left;
+    }
+
+    nav ul
+    {
+        margin: 0;
+        padding: 0;
+    }
+
     nav li
     {
-        padding: 8px;
-        width: 100%;
-        list-style: none;
-        margin: 10px;
+        padding: 4% 0% 4% 15px;
+        width: calc(100% - 23px);
+        float:left;
+        overflow: hide;
+        z-index: -1;
+        position: relative;
     }
 
     /* +++ Desktop Header +++ */
@@ -395,6 +426,11 @@ footer p
     #home_buttons
     {
         display: none;
+    }
+
+    .banner_img
+    {
+        height: 300px;
     }
 }
 
