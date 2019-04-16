@@ -56,9 +56,21 @@ function setCurrentUser()
         var id_token = auth2.currentUser.get().getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
-        var user_panel = document.getElementById("user_panel")
+        var user_panel = document.getElementById("user_panel");
         user_panel.children[1].innerHTML = profile.getName();
         user_panel.children[0].src = profile.getImageUrl();
+
+        var profileSection = document.getElementById("profile");
+        if (profileSection)
+        {
+            var profilePicture = profileSection.children[0];
+            var profileName = profileSection.children[1].children[1];
+            var profileEmail = profileSection.children[2].children[1];
+
+            profilePicture.src = profile.getImageUrl();
+            profileName.value = profile.getName();
+            profileEmail.value = profile.getEmail();
+        }
     }
 }
 
