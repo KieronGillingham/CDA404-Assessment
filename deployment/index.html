@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+        <script defer src="https://apis.google.com/js/platform.js?onload=init" async ></script>
+        <script defer src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/5.9.4/firebase-database.js"></script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +13,7 @@
         <link rel="stylesheet" href="css/main.css" type="text/css"/>
         
         <script src="scripts/main.js"></script>
+
 
         <title class="site_title">Tourbill - Time management for students</title>
     </head>
@@ -36,20 +39,26 @@
                     <p>You don't have enough time in your life to do everything you want, need, or are expected to do. So how are you supposed to fit planning it all in there as well?</p>
                     <img class="banner_img" src="images/office.jpeg" alt="Banner Image.">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat consequatur nihil unde beatae maxime, laudantium aspernatur dolor error? Repellat tempora aliquid maiores eveniet! Inventore sunt repellat voluptatum adipisci, nisi quam.</p>
-                    <img src="images/placeholder.png" alt="Lessons being entered into a timetable.">
-                    <p>Put in your scheduled lessons</p>
-                    <img src="images/placeholder.png" alt="Regular commitments being entered.">
-                    <p>Add your other commitments</p>
-                    <img src="images/placeholder.png" alt="Calculated timetable.">
-                    <p>Calculate your timetable</p>
+                    <section class="preview">
+                        <p>Put in your scheduled lessons</p>
+                        <img src="images/placeholder_screenshot.png" alt="Lessons being entered into a timetable.">
+                    </section>
+                    <section class="preview">
+                        <p>Add your other commitments</p>
+                        <img src="images/placeholder_screenshot.png" alt="Regular commitments being entered.">
+                    </section>
+                    <section class="preview">
+                        <p>Calculate your timetable</p>
+                        <img src="images/placeholder_screenshot.png" alt="Calculated timetable.">
+                    </section>
                     <button class="quick_start_main">Get Started</button>
                 </main>
                 <nav>
                     <ul>
                         <a href="/user_dash.html"><li>Dashboard</li></a>
-                        <a href="?"><li>My Timetable</li></a>
-                        <a href="?"><li>Health</li></a>
-                        <a href="?"><li>How to?</li></a>
+                        <a href="/timetable.html"><li>My Timetable</li></a>
+                        <a href="/health.html"><li>Health</li></a>
+                        <a href="/legal.html"><li>Legal</li></a>
                         <a href="/about.html"><li>About Us</li></a>
                     </ul>
                 </nav>
