@@ -93,30 +93,33 @@ h1
 
 #home_buttons
 {
-    margin: 5vh auto;
-    width: 56vh;
-    overflow: auto;
-    max-width: 60vw;
+    width: calc(100% - 20vw);
+    height: calc(100vw/3);
+    max-height: 30%; 
+    position: absolute;
+    bottom: 0;
+    margin: 10vw;
 }
 
 #sign_in, #quick_start
 {
     margin: 0;
     padding: 0;
-    width: 40%;
-    height: auto;
-    float: left;
+    height: 100%;
+    bottom: 0;
+    display: block;
+    position: absolute;
 }
 
 #quick_start
 {
-    float: right;
+    right: 0;
 }
 
 #home_buttons img
 {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
 }
 
 /* +++ Main page content +++ */
@@ -184,15 +187,29 @@ main p
     margin: 30px auto;
     width: 60%;
     display: block;
-    padding: 5%;
+    padding: 10px 5%;
     font-family: 'K2D', sans-serif;
     font-size: 30px;
     color: var(--white);
 }
 
+
+.preview img
+{
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.preview p
+{
+    width: 50%;
+    float: right;
+}
+
 main img
 {
-    margin: 10%;
+    margin: 10px 10%;
     height: auto;
     width: 80%;
 }
@@ -213,6 +230,30 @@ form textarea
 form [type="submit"]
 {
     float: left;
+}
+
+#profile
+{
+    width: 90%;
+    padding: 10px 5%;
+    overflow: auto;
+}
+
+#profile img
+{
+    margin: 0;
+    padding: 0;
+    width: 40%;
+    height: auto;
+    float: left;
+}
+
+#profile p
+{
+    float: left;
+    margin: 0;
+    padding: 0 5%;
+    width: 50%;
 }
 
 nav
@@ -250,7 +291,7 @@ nav a:nth-child(3n)>li
 footer
 {
     background-color: var(--dark-grey);
-    height: 200px;
+    height: 100px;
     bottom: 0px;
     width: 100%;
     color: var(--white);
@@ -259,20 +300,7 @@ footer
 
 footer ul
 {
-    width: 80%;
-    margin: auto;
-    overflow: auto;
-    padding: 0;
-}
-
-footer li
-{
-    padding: 0;
-    width: calc(100%/3);
-    text-align: center;
-    list-style: none;
-    margin: 10px 0px;
-    float: left;
+    display: none;
 }
 
 footer p
@@ -432,12 +460,28 @@ footer p
     {
         height: 300px;
     }
-}
 
-@media only screen and (max-width: 300px)
-{
+    footer
+    {
+        height: 200px;
+    }
+
+    footer ul
+    {
+        display: initial;
+        width: 80%;
+        margin: auto;
+        overflow: auto;
+        padding: 0;
+    }
+
     footer li
     {
-        width: 100%;
+        padding: 0;
+        width: calc(100%/3);
+        text-align: center;
+        list-style: none;
+        margin: 10px 0px;
+        float: left;
     }
 }
