@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/abridged_header.css" type="text/css"/>
         
         <script src="scripts/main.js"></script>
-        <script src="scripts/signinRedirect.js"></script>
 
         <title>Tourbill Log-in</title>
     </head>
@@ -32,7 +31,9 @@
             <div id="column"> 
                 <main>
                     <section id="sign-in-box">
-                        <h2 onclick=init()>Sign-in with Google</h2>
+                        <h2>Sign-in with Google</h2>
+                        <div onclick="signInToGoogle()">Sign-in</div>
+                        <div onclick="signOutUser()">Sign-out</div>
                         <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
                     </section>
                 </main>

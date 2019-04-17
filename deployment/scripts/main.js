@@ -6,6 +6,8 @@ var clientConfig =
     client_id: "791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com"
 };
 
+var user_panel;
+
 // init is called when the Google platform library is loaded
 function gapiLoaded()
 {
@@ -19,15 +21,20 @@ function initAuth()
     auth2 = gapi.auth2.init(clientConfig);
     auth2.then(setCurrentUser,authError);
     console.log("auth2 ready.");
+
 }
 
 function onLoad()
 {
     console.log("onLoad");
     setCurrentUser();
-    userpanel = document.getElementById("user_panel");
-    userpanel.onclick = clickUser;
-    
+    user_panel = document.getElementById("user_panel");
+    user_panel.onclick = clickUser; 
+}
+
+function signInToGoogle()
+{
+    auth2.signIn();
 }
 
 function setCurrentUser()
@@ -79,7 +86,6 @@ function setCurrentUser()
 
 function clickUser()
 {
-    console.log("click");
     window.location.href = "/login.html";
 };
 
