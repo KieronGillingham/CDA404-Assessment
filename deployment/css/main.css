@@ -8,7 +8,7 @@
     --white: #f9f9f9;
     --dark-grey: #4d4d4d;
     --light-brown: #deaa87;
-    --dark-brown: #d38d5f;
+    --dark-brown: #934d1f;
     --yellow: #ffcc00;
     --dark-yellow: #d4aa00;
     --green: #8dd35f;
@@ -24,7 +24,7 @@ body
     margin: 0;
     padding: 0;
     border: 0;
-    background-color: var(--dark-brown);
+    background-color: var(--light-brown);
     width: 100%;
     font-family: 'K2D', sans-serif;
 }
@@ -62,6 +62,8 @@ header
     margin-top: 0;
     padding: 0;
     width: 100%;
+
+    box-shadow: 0px 3px 8px black;
 }
 
 header::before
@@ -136,9 +138,11 @@ main
     width: 100%;
     padding: 0;
     overflow-y: auto;
-    box-shadow: 0px 5px 3px 3px var(--dark-grey);
+    box-shadow: 0px 5px 4px 3px var(--dark-brown);
     margin: 0;
     min-height: 50vh;
+    z-index: -1;
+    position: relative;
 }
 
 h2
@@ -177,6 +181,9 @@ main p
     padding: 0;
     margin: 0;
     object-fit: cover;
+    border: solid 5px var(--dark-grey);
+    border-left: 0;
+    border-right: 0;
 }
 
 
@@ -193,18 +200,28 @@ main p
     color: var(--white);
 }
 
+.preview
+{
+    width: 100%;
+    margin: 20px 0;
+    overflow: auto;
+}
 
 .preview img
 {
-    width: 50%;
+    width: calc(80% - 10px);
     height: auto;
-    float: left;
+    margin: 0 10%;
+    padding: 0;
+    border: 5px solid var(--dark-grey);
 }
 
 .preview p
 {
-    width: 50%;
-    float: right;
+    width: 80%;
+    text-align: center;
+    padding: 0;
+    margin: 0 10% 5px;
 }
 
 main img
@@ -271,6 +288,12 @@ nav li
     border-bottom: 5px solid var(--dark-grey);
     float: right;
 }
+nav a
+{
+    display: block;
+    overflow: auto;
+}
+
 nav a:nth-child(3n+1)>li
 {
     background-color: var(--yellow);
@@ -355,6 +378,7 @@ footer p
         margin: -65px 0 50px;
         box-shadow: 2px 5px 3px 1px var(--dark-grey);
         float: left;
+        z-index: 0;
     }
 
     .quick_start_main:first-of-type
@@ -406,6 +430,42 @@ footer p
         line-height: 48px;
         overflow: hidden;
     }
+
+    .preview
+{
+    width: 100%;
+    margin: 20px 0;
+    background-color: var(--dark-grey);
+    color: var(--white);
+    overflow: auto;
+}
+
+.preview img
+{
+    width: 50%;
+    height: auto;
+    float: left;
+    margin: 4%;
+    padding: 0;
+}
+
+
+.preview p
+{
+    width: 92%;
+    text-align: right;
+    padding: 0 4%;
+}
+
+.preview:nth-of-type(2) img
+{
+    float: right;
+}
+
+.preview:nth-of-type(2) p
+{
+    text-align: left;
+}
 
     nav
     {
