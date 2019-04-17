@@ -14,4 +14,3 @@ function redirect()
     if(!auth2.isSignedIn.get())
         window.location.href = "/login.html";
 }
-    
