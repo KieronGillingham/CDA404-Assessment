@@ -186,8 +186,6 @@ main p
     border-right: 0;
 }
 
-
-
 .quick_start_main
 {
     background-color: var(--green);
@@ -229,14 +227,6 @@ main img
     margin: 10px 10%;
     height: auto;
     width: 80%;
-}
-
-.g-signin2
-{
-    margin: auto;
-    width: 120px;
-    align-content: center;
-    text-align: center;
 }
 
 form textarea
