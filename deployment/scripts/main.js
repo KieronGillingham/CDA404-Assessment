@@ -7,15 +7,18 @@ var clientConfig =
 };
 
 // init is called when the Google platform library is loaded
-function init()
+function gapiLoaded()
 {
     // Load the auth2 module from the library
-    gapi.load('auth2', function()
-    {
-        auth2 = gapi.auth2.init(clientConfig);
-        auth2.then(setCurrentUser,authError);
-        console.log("auth ready.");
-    });
+    gapi.load('auth2', initAuth);
+    //gapi.load('auth2:client', initAuth); // Dual loading if needed
+}
+
+function initAuth()   
+{
+    auth2 = gapi.auth2.init(clientConfig);
+    auth2.then(setCurrentUser,authError);
+    console.log("auth2 ready.");
 }
 
 function onLoad()
