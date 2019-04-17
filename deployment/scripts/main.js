@@ -27,14 +27,27 @@ function initAuth()
 function onLoad()
 {
     console.log("onLoad");
-    setCurrentUser();
     user_panel = document.getElementById("user_panel");
     user_panel.onclick = clickUser; 
+    setCurrentUser();
 }
 
-function signInToGoogle()
+function signInUser()
 {
-    auth2.signIn();
+    user_consent_box = document.getElementById("user_consent");
+    if (user_consent_box.checked)
+    {
+        auth2.signIn().then(setCurrentUser);
+    }
+    else
+    {
+        alert("Please accept the Terms of Use and Privacy Policy before continuing.")
+    }
+}
+
+function signOutUser()
+{
+    auth2.signOut().then(setCurrentUser);
 }
 
 function setCurrentUser()
@@ -42,11 +55,13 @@ function setCurrentUser()
     if (!auth2)
     {
         console.log("No auth2 found.");
+        setUserPanel(null);
         return;
     }
     else if (!auth2.isSignedIn.get())
     {
         console.log("No user detected.");
+        setUserPanel(null);
         return;
     }
     else
@@ -54,21 +69,9 @@ function setCurrentUser()
         console.log("Signed in user detected.");
 
         var profile = auth2.currentUser.get().getBasicProfile();
-        /*
-        console.log('ID: ' + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-        */
-        // The ID token you need to pass to your backend:
-        var id_token = auth2.currentUser.get().getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
+        // var id_token = auth2.currentUser.get().getAuthResponse().id_token;
 
-        var user_panel = document.getElementById("user_panel");
-        user_panel.children[1].innerHTML = profile.getName();
-        user_panel.children[0].src = profile.getImageUrl();
+        setUserPanel(profile);
 
         var profileSection = document.getElementById("profile");
         if (profileSection)
@@ -81,6 +84,20 @@ function setCurrentUser()
             profileName.value = profile.getName();
             profileEmail.value = profile.getEmail();
         }
+    }
+}
+
+function setUserPanel(profile)
+{
+    if (!profile)
+    {
+        user_panel.children[1].innerHTML = "Sign-in";
+        user_panel.children[0].src = "images/user_icon.png";
+    }
+    else
+    {
+        user_panel.children[1].innerHTML = profile.getName();
+        user_panel.children[0].src = profile.getImageUrl();
     }
 }
 
