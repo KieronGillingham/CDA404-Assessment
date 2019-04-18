@@ -161,7 +161,17 @@ h3
     margin: 0 auto;
 }
 
-
+.quick_start_main
+{
+    background-color: var(--green);
+    margin: 30px 20%;
+    width: 60%;
+    display: block;
+    padding: 10px 5%;
+    font-family: 'K2D', sans-serif;
+    font-size: 30px;
+    color: var(--white);
+}
 
 .quick_start_main:first-of-type
 {
@@ -186,17 +196,7 @@ main p
     border-right: 0;
 }
 
-.quick_start_main
-{
-    background-color: var(--green);
-    margin: 30px auto;
-    width: 60%;
-    display: block;
-    padding: 10px 5%;
-    font-family: 'K2D', sans-serif;
-    font-size: 30px;
-    color: var(--white);
-}
+
 
 .preview
 {
