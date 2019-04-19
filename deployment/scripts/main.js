@@ -8,6 +8,35 @@ var clientConfig =
 
 var user_panel;
 
+var header_content =
+'<h1>Tourbill</h1>' +
+'<img class="main_logo" src="images/logo.png" alt="Logo">' +
+'<div id="home_buttons">' +
+'    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon"></a>' +
+'    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="User icon"></a>' +
+'</div> <!-- /home_buttons -->' +
+'<section id="user_panel">' +
+'    <img src="images/user_icon.png" alt="User icon">' +
+'    <p>Sign-in</p>' +
+'</section>'
+
+var nav_content =
+'<ul>' +
+'    <a href="/user_dash.html"><li>Dashboard</li></a>' +
+'    <a href="/timetable.html"><li>My Timetable</li></a>' +
+'    <a href="/health.html"><li>Health</li></a>' +
+'    <a href="/legal.html"><li>Legal</li></a>' +
+'    <a href="/about.html"><li>About Us</li></a>' +
+'</ul>';
+
+var footer_content =
+'<ul>' +
+'    <li><a href="/legal.html">Legal</a></li>' + 
+'    <li><a href="/about.html">About Us</a></li>' +
+'    <li><a href="/contact.html">Contact</a></li>' +
+'</ul>' +
+'<p>Kieron Gillingham - 2019</p>';
+
 // init is called when the Google platform library is loaded
 function gapiLoaded()
 {
@@ -27,9 +56,22 @@ function initAuth()
 function onLoad()
 {
     console.log("onLoad");
+
+    setContent("header", header_content);
+    setContent("nav", nav_content);
+    setContent("footer", footer_content);
+
     user_panel = document.getElementById("user_panel");
     user_panel.onclick = clickUser; 
     setCurrentUser();
+}
+
+function setContent(HTMLelement, content)
+{
+    for (let e of document.getElementsByClassName(HTMLelement))
+    {
+        e.innerHTML = content;
+    }
 }
 
 function signInUser()
