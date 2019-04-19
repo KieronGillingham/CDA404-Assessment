@@ -308,6 +308,10 @@ nav li
     border-bottom: 5px solid var(--dark-grey);
     float: right;
 }
+nav li.active
+{
+    width: 70%;
+}
 nav a
 {
     display: block;

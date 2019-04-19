@@ -10,7 +10,7 @@ var user_panel;
 
 var header_content =
 '<h1>Tourbill</h1>' +
-'<img class="main_logo" src="images/logo.png" alt="Logo">' +
+'<a href=/index.html><img class="main_logo" src="images/logo.png" alt="Logo"></a>' +
 '<div id="home_buttons">' +
 '    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon"></a>' +
 '    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="User icon"></a>' +
@@ -22,11 +22,11 @@ var header_content =
 
 var nav_content =
 '<ul>' +
-'    <a href="/user_dash.html"><li>Dashboard</li></a>' +
-'    <a href="/timetable.html"><li>My Timetable</li></a>' +
-'    <a href="/health.html"><li>Health</li></a>' +
-'    <a href="/legal.html"><li>Legal</li></a>' +
-'    <a href="/about.html"><li>About Us</li></a>' +
+'    <a href="/user_dash.html"><li data-pagename="user_dash">Dashboard</li></a>' +
+'    <a href="/timetable.html"><li data-pagename="timetable">My Timetable</li></a>' +
+'    <a href="/health.html"><li data-pagename="health">Health</li></a>' +
+'    <a href="/legal.html"><li data-pagename="legal">Legal</li></a>' +
+'    <a href="/about.html"><li data-pagename="about">About Us</li></a>' +
 '</ul>';
 
 var footer_content =
@@ -50,7 +50,7 @@ function initAuth()
     auth2 = gapi.auth2.init(clientConfig);
     auth2.then(setCurrentUser,authError);
     console.log("auth2 ready.");
-
+    
 }
 
 function onLoad()
@@ -60,6 +60,18 @@ function onLoad()
     setContent("header", header_content);
     setContent("nav", nav_content);
     setContent("footer", footer_content);
+
+    var navTabs = document.querySelectorAll('nav li')
+    
+    for (tab of navTabs)
+    {
+        if (tab.dataset.pagename == document.head.dataset.pagename)
+        {
+            tab.classList.add("active");
+            break;
+        }
+    }
+    
 
     user_panel = document.getElementById("user_panel");
     user_panel.onclick = clickUser; 
@@ -103,6 +115,10 @@ function setCurrentUser()
     else if (!auth2.isSignedIn.get())
     {
         console.log("No user detected.");
+        if (document.head.dataset.pagename == "user_dash")
+        {
+            window.location.href = "/login.html";redirect();
+        }
         setUserPanel(null);
         return;
     }
