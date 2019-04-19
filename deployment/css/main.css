@@ -54,7 +54,6 @@ wrapper
 
 header
 {
-    
     background-image: linear-gradient(#cc8800, var(--yellow));
     
     border-bottom: 2vh solid var(--dark-grey);
@@ -389,6 +388,7 @@ footer p
     header
     {
         padding-top: 50px;
+        position: static;
     }
 
     main
@@ -508,6 +508,7 @@ footer p
         overflow: hide;
         z-index: -1;
         position: relative;
+        margin: 5px 0;
     }
 
     /* +++ Desktop Header +++ */
