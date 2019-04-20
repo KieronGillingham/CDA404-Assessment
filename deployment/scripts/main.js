@@ -8,6 +8,8 @@ var clientConfig =
 
 var user_panel;
 
+var currentPage;
+
 var header_content =
 '<h1>Tourbill</h1>' +
 '<a href=/index.html><img class="main_logo" src="images/logo.png" alt="Logo"></a>' +
@@ -61,11 +63,13 @@ function onLoad()
     setContent("nav", nav_content);
     setContent("footer", footer_content);
 
+    currentPage = document.head.dataset.pagename;
+
     var navTabs = document.querySelectorAll('nav li')
     
     for (tab of navTabs)
     {
-        if (tab.dataset.pagename == document.head.dataset.pagename)
+        if (tab.dataset.pagename == currentPage)
         {
             tab.classList.add("active");
             break;
@@ -75,7 +79,19 @@ function onLoad()
 
     user_panel = document.getElementById("user_panel");
     user_panel.onclick = clickUser; 
-    setCurrentUser();
+
+    if (currentPage = "timetable")
+    {
+        var calcInput = document.getElementById("calculator");
+        if (calcInput)
+        {
+            calcInput.onsubmit = function(e)
+            {
+                e.preventDefault();
+                calculateTimetable(calcInput);
+            }
+        }
+    }
 }
 
 function setContent(HTMLelement, content)
@@ -167,4 +183,33 @@ function clickUser()
 function authError(err)
 {
     console.log(err);
+}
+
+function calculateTimetable(calcInput)
+{
+    var output = document.getElementById("output");
+
+    output.innerHTML = "";
+
+    function writeLine(unitName, calcTime)
+    {
+        if (unitName && calcTime)
+            output.innerHTML += "You should spend " + calcTime + " hours studying for " + unitName + " outside of class.<br>"; 
+    }
+
+    writeLine
+    (
+        calcInput.elements.namedItem("unit1").value,
+        2 * parseInt(calcInput.elements.namedItem("unit1_hours").value)
+    );
+    writeLine
+    (
+        calcInput.elements.namedItem("unit2").value,
+        2 * parseInt(calcInput.elements.namedItem("unit2_hours").value)
+    );
+    writeLine
+    (
+        calcInput.elements.namedItem("unit3").value,
+        2 * parseInt(calcInput.elements.namedItem("unit3_hours").value)
+    );
 }
