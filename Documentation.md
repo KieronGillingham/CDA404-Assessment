@@ -33,7 +33,7 @@ The full wireframes can be found [here](wireframes.pdf).
 
 ---
 
-## Colour Palette and Design
+## Design and Colour Palette 
 I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright accents, similar to what would be seen in a highlighted notebook.
 
 <img src="doc_images/palette.png" width=40%>
