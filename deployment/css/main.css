@@ -317,6 +317,10 @@ nav a
     display: block;
     overflow: auto;
 }
+nav a:link, nav a:visited
+{
+    color: var(--dark-grey);
+}
 
 nav a:nth-child(3n+1)>li
 {
@@ -343,6 +347,7 @@ footer
     width: 100%;
     color: var(--white);
     border-top: 5px solid var(--white);
+    
 }
 
 footer ul
@@ -350,12 +355,21 @@ footer ul
     display: none;
 }
 
+footer a:link, footer a:visited
+{
+    color: var(--white);
+    text-decoration: none;
+}
+
+footer a:hover
+{
+    text-decoration: underline;
+}
+
 footer p
 {
     font-size: 12px;
-    bottom: 3px;
     text-align: center;
-    position: relative;
     width: 100%;
 }
 
@@ -550,6 +564,7 @@ footer p
     footer
     {
         height: 200px;
+        position: static;
     }
 
     footer ul
