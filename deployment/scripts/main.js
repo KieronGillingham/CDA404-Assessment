@@ -92,6 +92,14 @@ function onLoad()
             }
         }
     }
+
+    for (e of document.getElementsByClassName("quick_start_main"))
+    {
+        e.onclick = function()
+        {
+            window.location.href = "/timetable.html";
+        }
+    }
 }
 
 function setContent(HTMLelement, content)
@@ -133,7 +141,7 @@ function setCurrentUser()
         console.log("No user detected.");
         if (document.head.dataset.pagename == "user_dash")
         {
-            window.location.href = "/login.html";redirect();
+            window.location.href = "/login.html";
         }
         setUserPanel(null);
         return;

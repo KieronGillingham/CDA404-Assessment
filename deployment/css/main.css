@@ -426,8 +426,9 @@ footer p
 
     main p
     {
-        padding: 0 8%;
         width: 84%;
+        margin: 40px 8%;
+        text-overflow: clip;
     }
 
     #site_title
