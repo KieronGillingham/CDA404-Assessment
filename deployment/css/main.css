@@ -378,7 +378,6 @@ footer p
 
 @media only screen and (min-width: 900px)
 {
-
     .main_logo
     {
         height: 100px;
@@ -547,8 +546,10 @@ footer p
     {
         color: var(--white);
         width: 50%;
-        float: left;
         margin: 0;
+        height: 100px;
+        position: absolute;
+        font-size: 70px;
     }
 
     #home_buttons
