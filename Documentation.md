@@ -33,10 +33,12 @@ The full wireframes can be found [here](wireframes.pdf).
 
 ---
 
-## Colour Palette
+## Colour Palette and Design
 I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright accents, similar to what would be seen in a highlighted notebook.
 
 <img src="doc_images/palette.png" width=40%>
+
+The navigation pane is styled to look like notebook tabs. The users location is shown by offseting the position of the tab refering to the current page.
 
 ---
 
@@ -57,4 +59,4 @@ A link to the privacy policy is located in the footer of each page.
 
 I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
 
-There are many elements shared across the website it is desireable to keep uniform. Given more time I would investigate a better way of implementing resusable components such as the header and footer.
+I used JavaScript to dynamically insert shared elements into different pages. Although this is not the cleanest method of creating shared elements, it did not require importing any unecessary frameworks or tools.
