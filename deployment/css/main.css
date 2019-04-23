@@ -250,6 +250,11 @@ form [type="submit"]
     text-align: center;
 }
 
+#sign-in-box p
+{
+    text-align: center;
+}
+
 #profile
 {
     width: 90%;
