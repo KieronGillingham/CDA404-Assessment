@@ -195,22 +195,23 @@ main p
     border-right: 0;
 }
 
-
-
 .preview
 {
     width: 100%;
-    margin: 20px 0;
+    margin: 45px 0;
     overflow: auto;
+    padding: 0;
 }
 
 .preview img
 {
     width: calc(80% - 10px);
+    max-width: 450px;
     height: auto;
-    margin: 0 10%;
+    margin: 0 auto;
     padding: 0;
     border: 5px solid var(--dark-grey);
+    display: block;
 }
 
 .preview p
@@ -434,7 +435,7 @@ footer p
         margin: -65px 0 50px;
         box-shadow: 2px 5px 3px 1px var(--dark-grey);
         float: left;
-        z-index: 0;
+        z-index: 1;
     }
 
     .quick_start_main:first-of-type
@@ -453,8 +454,6 @@ footer p
     {
         content: var(--site_title);
     }
-
-    
 
     #user_panel
     {
@@ -489,49 +488,63 @@ footer p
     }
 
     .preview
-{
-    width: 100%;
-    margin: 20px 0;
-    background-color: var(--dark-grey);
-    color: var(--white);
-    overflow: auto;
-}
+    {
+        width: 76%;
+        margin: 20px 0;
+        background-color: var(--dark-grey);
+        color: var(--white);
+        padding: 0 9% 0 15%;
+        overflow: hidden;
+        height: 200px;
+    }
 
-.preview img
-{
-    width: 50%;
-    height: auto;
-    float: left;
-    margin: 4%;
-    padding: 0;
-}
+    .preview img
+    {
+        width: 50%;
+        height: 100%;
+        object-fit: contain;
+        float: left;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
 
+    .preview p
+    {
+        width: 50%;
+        line-height: 200px;
+        text-align: center;
+        padding: 0;
+        margin: 0 auto;
+        float: right;
+    }
 
-.preview p
-{
-    width: 92%;
-    text-align: right;
-    padding: 0 4%;
-}
+    .preview:nth-of-type(2)
+    {
+        padding: 0 15% 0 9%;
+    }
 
-.preview:nth-of-type(2) img
-{
-    float: right;
-}
+    .preview:nth-of-type(2) img
+    {
+        float: right;
+    }
 
-.preview:nth-of-type(2) p
-{
-    text-align: left;
-}
+    .preview:nth-of-type(2) p
+    {
+        float: left;
+    }
 
     nav
     {
+        position: sticky;
+        top: 30px;
         width: 20%;
         float: left;
     }
 
     nav ul
     {
+        
         margin: 0;
         padding: 0;
     }
@@ -542,14 +555,12 @@ footer p
         width: calc(100% - 23px);
         float:left;
         overflow: hide;
-        z-index: -1;
         position: relative;
         margin: 5px 0;
     }
 
     /* +++ Desktop Header +++ */
 
-    
     #home_buttons
     {
         display: none;
