@@ -383,16 +383,7 @@ footer p
         height: 100px;
         width: 100px;
         margin: 0;
-    }
-
-    #user_panel
-    {
-        display: block;
-    }
-
-    #column
-    {
-        margin: 0;
+        position: static;
     }
 
     header, #column, footer
@@ -400,12 +391,39 @@ footer p
         display: inline-block;
         padding: 0 calc((100% - 900px)/2);
         width: 900px;
+        margin: 0;
     }
 
     header
     {
         padding-top: 50px;
         position: static;
+        background-color: var(--yellow);
+        border-bottom: 15px solid var(--dark-grey);
+        height: 180px;
+    }
+    
+    header::before
+    {
+        display: none;
+    }
+
+    h1
+    {
+        color: var(--white);
+        width: 50%;
+        text-align: left;
+        margin: 0;
+        height: 100px;
+        font-size: 70px;
+        left: 120px;
+        float:left;
+
+    }
+
+    #user_panel
+    {
+        display: block;
     }
 
     main
@@ -531,28 +549,7 @@ footer p
 
     /* +++ Desktop Header +++ */
 
-    header
-    {
-        background-color: var(--yellow);
-        border-bottom: 15px solid var(--dark-grey);
-        height: 180px;
-    }
     
-    header::before
-    {
-        display: none;
-    }
-
-    h1
-    {
-        color: var(--white);
-        width: 50%;
-        margin: 0;
-        height: 100px;
-        position: absolute;
-        font-size: 70px;
-    }
-
     #home_buttons
     {
         display: none;
