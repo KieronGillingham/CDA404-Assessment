@@ -1,16 +1,6 @@
-var auth2;
-
-var clientConfig = 
-{
-    scope: "profile email",
-    client_id: "791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com"
-};
-
-var user_panel;
-
 var currentPage;
 
-var header_content =
+const headerContent =
 '<h1>Tourbill</h1>' +
 '<a href=/index.html><img class="main_logo" src="images/logo.png" alt="Logo"></a>' +
 '<div id="home_buttons">' +
@@ -22,7 +12,7 @@ var header_content =
 '    <p>Sign-in</p>' +
 '</section>'
 
-var nav_content =
+const navContent =
 '<ul>' +
 '    <a href="/user_dash.html"><li data-pagename="user_dash">Dashboard</li></a>' +
 '    <a href="/timetable.html"><li data-pagename="timetable">My Timetable</li></a>' +
@@ -31,7 +21,7 @@ var nav_content =
 '    <a href="/about.html"><li data-pagename="about">About Us</li></a>' +
 '</ul>';
 
-var footer_content =
+const footerContent =
 '<ul>' +
 '    <li><a href="/legal.html">Legal</a></li>' + 
 '    <li><a href="/about.html">About Us</a></li>' +
@@ -39,17 +29,22 @@ var footer_content =
 '</ul>' +
 '<p>Kieron Gillingham - 2019</p>';
 
-// Initialize Firebase
-var config = {
+const clientConfig = 
+{
+    scope: "profile email",
+    clientId: "791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com"
+};
+const firebaseConfig = {
     apiKey: "AIzaSyBKaSN9ivqv_KNCtDEeaXzsYztYTms-qxo",
     authDomain: "tourbill.firebaseapp.com",
-    //databaseURL: "https://tourbill.firebaseio.com",
-    projectId: "tourbill"//,
-    //storageBucket: "tourbill.appspot.com",
-    //messagingSenderId: "791596452369"
+    projectId: "tourbill"
 };
-firebase.initializeApp(config);
 
+var auth2;
+var gapi;
+
+var firebase = require("firebase");
+firebase.initializeApp(firebaseConfig);
 var database = firebase.firestore();
 
 // init is called when the Google platform library is loaded
@@ -72,19 +67,16 @@ function onLoad()
 {
     console.log("onLoad");
 
-    // Load in shared elements
-    setContent("header", header_content);
-    setContent("nav", nav_content);
-    setContent("footer", footer_content);
+    loadSharedElements();
 
     currentPage = document.head.dataset.pagename;
 
     navShowCurrentPage();
  
-    user_panel = document.getElementById("user_panel");
-    user_panel.onclick = clickUser; 
+    userPanel = document.getElementById("user_panel");
+    userPanel.onclick = clickUser; 
 
-    if (currentPage = "timetable")
+    if (currentPage == "timetable")
     {
         var calcInput = document.getElementById("calculator");
         if (calcInput)
@@ -97,7 +89,7 @@ function onLoad()
         }
     }
 
-    if (currentPage = "user_dash")
+    if (currentPage == "user_dash")
     {
         var profileInput = document.getElementById("profile");
         if (profileInput)
@@ -115,7 +107,7 @@ function onLoad()
         }
     }
 
-    for (e of document.getElementsByClassName("quick_start_main"))
+    for (let e of document.getElementsByClassName("quick_start_main"))
     {
         e.onclick = function()
         {
@@ -124,24 +116,35 @@ function onLoad()
     }
 }
 
-function setContent(HTMLelement, content)
+function loadSharedElements()
 {
-    for (e of document.getElementsByClassName(HTMLelement))
+    function setContent(HTMLelement, content)
     {
-        e.innerHTML = content;
+        for (let e of document.getElementsByClassName(HTMLelement))
+        {
+            e.innerHTML = content;
+        }
     }
+    
+    setContent("header", headerContent);
+    setContent("nav", navContent);
+    setContent("footer", footerContent);
 }
 
 function signInUser()
 {
-    user_consent_box = document.getElementById("user_consent");
-    if (user_consent_box.checked)
+    var userConsentBox = document.getElementById("user_consent");
+    
+    if (userConsentBox)
     {
-        auth2.signIn().then(setCurrentUser);
-    }
-    else
-    {
-        alert("Please accept the Terms of Use and Privacy Policy before continuing.")
+        if (userConsentBox.checked)
+        {
+            auth2.signIn().then(setCurrentUser);
+        }
+        else
+        {
+            alert("Please accept the Terms of Use and Privacy Policy before continuing.")
+        }   
     }
 }
 
@@ -196,13 +199,13 @@ function setUserPanel(profile)
 {
     if (!profile)
     {
-        user_panel.children[1].innerHTML = "Sign-in";
-        user_panel.children[0].src = "images/user_icon.png";
+        userPanel.children[1].innerHTML = "Sign-in";
+        userPanel.children[0].src = "images/user_icon.png";
     }
     else
     {
-        user_panel.children[1].innerHTML = profile.getName();
-        user_panel.children[0].src = profile.getImageUrl();
+        userPanel.children[1].innerHTML = profile.getName();
+        userPanel.children[0].src = profile.getImageUrl();
     }
 }
 
@@ -220,7 +223,7 @@ function authError(err)
 function navShowCurrentPage()
 {
     var navTabs = document.querySelectorAll('nav li');
-    for (tab of navTabs)
+    for (let tab of navTabs)
     {
         if (tab.dataset.pagename == currentPage)
         {
