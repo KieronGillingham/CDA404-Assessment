@@ -159,8 +159,8 @@ function setCurrentUser()
         if (profileSection)
         {
             var profilePicture = profileSection.children[0];
-            var profileName = profileSection.children[1].children[1];
-            var profileEmail = profileSection.children[2].children[1];
+            var profileName = profileSection.children[1].children[2];
+            var profileEmail = profileSection.children[2].children[2];
 
             profilePicture.src = profile.getImageUrl();
             profilePicture.alt = "The profile picture of " + profile.getName() + ".";
