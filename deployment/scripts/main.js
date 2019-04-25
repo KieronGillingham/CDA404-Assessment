@@ -14,11 +14,11 @@ var header_content =
 '<h1>Tourbill</h1>' +
 '<a href=/index.html><img class="main_logo" src="images/logo.png" alt="Logo"></a>' +
 '<div id="home_buttons">' +
-'    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon"></a>' +
-'    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="User icon"></a>' +
+'    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt="User icon."></a>' +
+'    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt="A forward arrow."></a>' +
 '</div> <!-- /home_buttons -->' +
 '<section id="user_panel">' +
-'    <img src="images/user_icon.png" alt="User icon">' +
+'    <img src="images/user_icon.png" alt="User icon.">' +
 '    <p>Sign-in</p>' +
 '</section>'
 
