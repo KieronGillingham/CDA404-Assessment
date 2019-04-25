@@ -39,6 +39,19 @@ var footer_content =
 '</ul>' +
 '<p>Kieron Gillingham - 2019</p>';
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBKaSN9ivqv_KNCtDEeaXzsYztYTms-qxo",
+    authDomain: "tourbill.firebaseapp.com",
+    //databaseURL: "https://tourbill.firebaseio.com",
+    projectId: "tourbill"//,
+    //storageBucket: "tourbill.appspot.com",
+    //messagingSenderId: "791596452369"
+};
+firebase.initializeApp(config);
+
+var database = firebase.firestore();
+
 // init is called when the Google platform library is loaded
 function gapiLoaded()
 {
@@ -59,24 +72,15 @@ function onLoad()
 {
     console.log("onLoad");
 
+    // Load in shared elements
     setContent("header", header_content);
     setContent("nav", nav_content);
     setContent("footer", footer_content);
 
     currentPage = document.head.dataset.pagename;
 
-    var navTabs = document.querySelectorAll('nav li')
-    
-    for (tab of navTabs)
-    {
-        if (tab.dataset.pagename == currentPage)
-        {
-            tab.classList.add("active");
-            break;
-        }
-    }
-    
-
+    navShowCurrentPage();
+ 
     user_panel = document.getElementById("user_panel");
     user_panel.onclick = clickUser; 
 
@@ -93,6 +97,24 @@ function onLoad()
         }
     }
 
+    if (currentPage = "user_dash")
+    {
+        var profileInput = document.getElementById("profile");
+        if (profileInput)
+        {
+            profileInput.onsubmit = function(e)
+            {
+                e.preventDefault();
+                database.collection("users").add({
+                    name: profileInput.elements.namedItem("name").value,
+                    email: profileInput.elements.namedItem("email").value,
+                    location: profileInput.elements.namedItem("location").value,
+                    placeofstudy: profileInput.elements.namedItem("place-of-study").value,
+                })
+            }
+        }
+    }
+
     for (e of document.getElementsByClassName("quick_start_main"))
     {
         e.onclick = function()
@@ -104,7 +126,7 @@ function onLoad()
 
 function setContent(HTMLelement, content)
 {
-    for (let e of document.getElementsByClassName(HTMLelement))
+    for (e of document.getElementsByClassName(HTMLelement))
     {
         e.innerHTML = content;
     }
@@ -192,6 +214,20 @@ function clickUser()
 function authError(err)
 {
     console.log(err);
+}
+
+// Style nav list to show current page
+function navShowCurrentPage()
+{
+    var navTabs = document.querySelectorAll('nav li');
+    for (tab of navTabs)
+    {
+        if (tab.dataset.pagename == currentPage)
+        {
+            tab.classList.add("active");
+            break;
+        }
+    }
 }
 
 function calculateTimetable(calcInput)
