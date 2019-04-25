@@ -163,6 +163,7 @@ function setCurrentUser()
             var profileEmail = profileSection.children[2].children[1];
 
             profilePicture.src = profile.getImageUrl();
+            profilePicture.alt = "The profile picture of " + profile.getName() + ".";
             profileName.value = profile.getName();
             profileEmail.value = profile.getEmail();
         }
