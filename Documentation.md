@@ -33,30 +33,32 @@ The full wireframes can be found [here](wireframes.pdf).
 
 ---
 
-## Design and Colour Palette 
+## Design and Colour Palette
+The name 'Tourbill' is derived from 'Tourbillon', a watch component for reducing errors in time-keeping. 
+
 I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright accents, similar to what would be seen in a highlighted notebook.
 
 <img src="doc_images/palette.png" width=40%>
 
 The navigation pane is styled to look like notebook tabs. The users location is shown by offseting the position of the tab refering to the current page.
 
+I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
+
 ---
 
 ## Accessability
-TBC
+To facilitate accessability, all images on the website include descriptive text for screen readers. There is also a "skip-to-content" link hidden at the begining of each HTML document. These are only visible when they receive keyboard focus.
 
 ---
 
 ## Legal Considerations
-The application is not a paid service and does not sell products. It does however, make use of the google sign-in api, which requires user consent and a suitable privacy policy regarding the handling of user data.
+The application is not a paid service and does not sell products. It does however, make use of Google authentication, which requires user consent and a suitable privacy policy regarding the handling of user data.
 
-A link to the privacy policy is located in the footer of each page.
+The legal policies can be found on the page legal.html, which can be accessed from the navigation, or a link in the footer in desktop view.
 
 ---
 
 ## Evaluation
 - I struggled during the design phase
-
-I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
 
 I used JavaScript to dynamically insert shared elements into different pages. Although this is not the cleanest method of creating shared elements, it did not require importing any unecessary frameworks or tools.
