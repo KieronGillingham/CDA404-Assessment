@@ -1,14 +1,4 @@
-var auth2;
-
-var clientConfig = 
-{
-    scope: "profile email",
-    client_id: "791596452369-msa2qsconhf0gcupsq4r030sr7942dq5.apps.googleusercontent.com"
-};
-
-var user_panel;
-
-var currentPage;
+window.addEventListener("load", onLoad);
 
 var header_content =
 '<h1>Tourbill</h1>' +
@@ -39,46 +29,21 @@ var footer_content =
 '</ul>' +
 '<p>Kieron Gillingham - 2019</p>';
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBKaSN9ivqv_KNCtDEeaXzsYztYTms-qxo",
-    authDomain: "tourbill.firebaseapp.com",
-    //databaseURL: "https://tourbill.firebaseio.com",
-    projectId: "tourbill"//,
-    //storageBucket: "tourbill.appspot.com",
-    //messagingSenderId: "791596452369"
-};
-firebase.initializeApp(config);
-
-var database = firebase.firestore();
-
-// init is called when the Google platform library is loaded
-function gapiLoaded()
-{
-    // Load the auth2 module from the library
-    gapi.load('auth2', initAuth);
-    //gapi.load('auth2:client', initAuth); // Dual loading if needed
-}
-
-function initAuth()   
-{
-    auth2 = gapi.auth2.init(clientConfig);
-    auth2.then(setCurrentUser,authError);
-    console.log("auth2 ready.");
-    
-}
+var user_panel;
+var currentPage;
 
 function onLoad()
 {
-    console.log("onLoad");
+    console.log("onLoad - main.js");
+
+    currentPage = document.head.dataset.pagename;
 
     // Load in shared elements
     setContent("header", header_content);
     setContent("nav", nav_content);
     setContent("footer", footer_content);
 
-    currentPage = document.head.dataset.pagename;
-
+    // Offset nav element if it links to the current page
     navShowCurrentPage();
  
     user_panel = document.getElementById("user_panel");
@@ -150,48 +115,6 @@ function signOutUser()
     auth2.signOut().then(setCurrentUser);
 }
 
-function setCurrentUser()
-{
-    if (!auth2)
-    {
-        console.log("No auth2 found.");
-        setUserPanel(null);
-        return;
-    }
-    else if (!auth2.isSignedIn.get())
-    {
-        console.log("No user detected.");
-        if (document.head.dataset.pagename == "user_dash")
-        {
-            window.location.href = "/login.html";
-        }
-        setUserPanel(null);
-        return;
-    }
-    else
-    {
-        console.log("Signed in user detected.");
-
-        var profile = auth2.currentUser.get().getBasicProfile();
-        // var id_token = auth2.currentUser.get().getAuthResponse().id_token;
-
-        setUserPanel(profile);
-
-        var profileSection = document.getElementById("profile");
-        if (profileSection)
-        {
-            var profilePicture = profileSection.children[0];
-            var profileName = profileSection.children[1].children[2];
-            var profileEmail = profileSection.children[2].children[2];
-
-            profilePicture.src = profile.getImageUrl();
-            profilePicture.alt = "The profile picture of " + profile.getName() + ".";
-            profileName.value = profile.getName();
-            profileEmail.value = profile.getEmail();
-        }
-    }
-}
-
 function setUserPanel(profile)
 {
     if (!profile)
@@ -211,15 +134,10 @@ function clickUser()
     window.location.href = "/login.html";
 };
 
-function authError(err)
-{
-    console.log(err);
-}
-
 // Style nav list to show current page
 function navShowCurrentPage()
 {
-    var navTabs = document.querySelectorAll('nav li');
+    let navTabs = document.querySelectorAll('nav li');
     for (tab of navTabs)
     {
         if (tab.dataset.pagename == currentPage)
@@ -239,9 +157,10 @@ function calculateTimetable(calcInput)
     function writeLine(unitName, calcTime)
     {
         if (unitName && calcTime)
+        {
             output.innerHTML += "You should spend " + calcTime + " hours studying for " + unitName + " outside of class.<br>"; 
+        }
     }
-
     writeLine
     (
         calcInput.elements.namedItem("unit1").value,
