@@ -19,7 +19,7 @@ Southampton Solent University - 2019
 ## Background
 There are many students who struggle with balancing their workload and keeping organised. This application aims to provide a system to help students manage their time effectively.
 
-The principal idea is to analyse a students timetable and calculate how much independent study needs to be done for each unit/project. The application would then integrate with the Google calender API to create a weekly timetable for the student.
+The principal idea is to analyse a students timetable and calculate how much independent study needs to be done for each unit/project. The application would then integrate with the Google Calendar API to create a weekly timetable for the student.
 
 ---
 
@@ -57,6 +57,6 @@ A link to the privacy policy is located in the footer of each page.
 ## Evaluation
 - I struggled during the design phase
 
-I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone.
+I decided to design the website from a mobile-first approach as modern students are more likely to access it from a phone. The desktop view is designed around a column as it made translating from the mobile view simpler.
 
 I used JavaScript to dynamically insert shared elements into different pages. Although this is not the cleanest method of creating shared elements, it did not require importing any unecessary frameworks or tools.
