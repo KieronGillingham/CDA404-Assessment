@@ -39,6 +39,7 @@ I selected the following colour palette to be evocative of a desktop daily plann
 <img src="doc_images/palette.png" width=40%>
 
 The navigation pane is styled to look like notebook tabs. The users location is shown by offseting the position of the tab refering to the current page.
+The background is a corkboard to match the theme of office stationary. It also matches the chosen colour palette. It is a free-for-non-commercial-use image.
 
 ---
 
