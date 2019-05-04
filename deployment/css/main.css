@@ -23,7 +23,7 @@ body
     margin: 0;
     padding: 0;
     border: 0;
-    background-color: var(--light-brown);
+    background-image: url('../images/cork-board.jpg');
     width: 100%;
     font-family: 'K2D', sans-serif;
 }
