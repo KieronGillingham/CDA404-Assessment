@@ -23,7 +23,7 @@ body
     margin: 0;
     padding: 0;
     border: 0;
-    background-image: url('../images/cork-board.jpg');
+    background-image: url('../images/cork_board.jpg');
     width: 100%;
     font-family: 'K2D', sans-serif;
 }
@@ -314,7 +314,7 @@ nav li
     width: 80%;
     list-style: none;
     margin: 12px 0;
-    border-bottom: 5px solid var(--dark-grey);
+    border-bottom: 2px solid var(--dark-grey);
     float: right;
 }
 nav li.active
