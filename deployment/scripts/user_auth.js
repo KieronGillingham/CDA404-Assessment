@@ -7,6 +7,7 @@ var clientConfig =
 };
 
 var auth2;
+var localclient;
 
 // Called when Google platform is loaded
 function gapiLoaded()
@@ -20,7 +21,7 @@ function initAuthClient()
     auth2 = gapi.auth2.init(clientConfig);
     auth2.then(authComplete, printError);
 
-    let localclient = gapi.client.init(clientConfig);
+    localclient = gapi.client.init(clientConfig);
     localclient.then(loadCalendarAPI, printError);
 }
 
@@ -41,12 +42,17 @@ function authComplete()
 
 function loadCalendarAPI()
 {
-    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest", calendarLoaded);
+    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest").then(calendarLoaded);
 }
 
 function calendarLoaded()
 {
     console.log("Calendar loaded");
+    // Check timetable exists, and user is signed in
+    if (timetableContainer && auth2.isSignedIn.get())
+    {
+        timetableLoad();
+    }
 }
 
 function signInUser()
@@ -108,7 +114,16 @@ function setUser(signedIn)
             profileName.value = profile.getName();
             profileEmail.value = profile.getEmail();
         }
+
+        // Check timetable exists and calender is loaded
+        if (timetableContainer && gapi.client.calendar)
+        {
+            timetableLoad();
+        }
+
     }
+
+
 }
 
 function printError(err)
