@@ -251,6 +251,7 @@ form [type="submit"]
     padding: 10px;
     width: 30%;
     text-align: center;
+    cursor: pointer;
 }
 
 #sign-in-box p
@@ -300,6 +301,11 @@ table td
     height: 15px;
     width: 50vw;
     text-align: center;
+}
+
+input[type='checkbox']
+{
+    cursor: pointer;
 }
 
 nav
@@ -431,7 +437,7 @@ footer p
     h1
     {
         color: var(--white);
-        width: 50%;
+        width: var(--desktop-width)/2;
         text-align: left;
         margin: 0;
         height: 100px;
@@ -443,6 +449,7 @@ footer p
     #user_panel
     {
         display: block;
+        cursor: pointer;
     }
 
     main
