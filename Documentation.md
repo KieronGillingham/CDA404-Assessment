@@ -19,7 +19,7 @@ Southampton Solent University - 2019
 ## Background
 There are many students who struggle with balancing their workload and keeping organised. This application aims to provide a system to help students manage their time effectively.
 
-The principal idea is to analyse a students timetable and calculate how much independent study needs to be done for each unit/project. The application would then integrate with the Google Calendar API to create a weekly timetable for the student.
+The principal idea is to analyse a students timetable and calculate how much independent study needs to be done for each unit/project. The application would then integrate with the Google Calendar API to create a weekly timetable for the student around their current commitments.
 
 ---
 
@@ -27,24 +27,27 @@ The principal idea is to analyse a students timetable and calculate how much ind
 Before beginning production of the website, I used an online tool called [Mockingbird](https://gomockingbird.com/) to create wireframes of the main pages.
 The full wireframes can be found [here](wireframes.pdf).
 
-<img src="doc_images/wireframe_preview.png" width=80%>
+<img src="doc_images/wireframe_preview.png" alt="A preview of the wireframes for the homepage." width=80%>
 
 *Note: The wireframes were created before the name of the project was finalized.*
 
 ---
 
-## Design and Colour Palette 
+## Design and Colour Palette
 I selected the following colour palette to be evocative of a desktop daily planner. The muted browns are sharply contrasted by the bright accents, similar to what would be seen in a highlighted notebook.
 
-<img src="doc_images/palette.png" width=40%>
+<img src="doc_images/palette.png" alt="A sample of the colour palette. Warm browns with bright yellow, green, and pink highlights." width=55%>
 
 The navigation pane is styled to look like notebook tabs. The users location is shown by offseting the position of the tab refering to the current page.
-The background is a corkboard to match the theme of office stationary. It also matches the chosen colour palette. It is a free-for-non-commercial-use image.
+
+The background image is a corkboard to match the theme of office stationary while fitting the chosen colour palette. It is a free-for-non-commercial-use image obtained from [here](https://www.publicdomainpictures.net/en/view-image.php?image=25664&picture=cork-board).
 
 ---
 
 ## Accessability
-TBC
+To facilitate keyboard users, each page includes a skip-to-content link hidden off-screen until it is given focus.
+
+Important images have appropriate alt-text. Images that are simply styling for buttons have empty alt-text fields to indicate that they can be ignored.
 
 ---
 
