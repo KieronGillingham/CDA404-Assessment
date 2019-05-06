@@ -36,6 +36,7 @@ function onLoad()
 {
     console.log("onLoad - main.js");
 
+    // Get name of current page
     currentPage = document.head.dataset.pagename;
 
     // Load in shared elements
@@ -45,11 +46,11 @@ function onLoad()
 
     // Offset nav element if it links to the current page
     navShowCurrentPage();
- 
-    user_panel = document.getElementById("user_panel");
-    user_panel.onclick = clickUser; 
 
-    if (currentPage = "timetable")
+    user_panel = document.getElementById("user_panel");
+    user_panel.addEventListener("click",clickUser); 
+
+    if (currentPage == "timetable")
     {
         var calcInput = document.getElementById("calculator");
         if (calcInput)
@@ -62,7 +63,7 @@ function onLoad()
         }
     }
 
-    if (currentPage = "user_dash")
+    if (currentPage == "user_dash")
     {
         var profileInput = document.getElementById("profile");
         if (profileInput)
@@ -102,7 +103,7 @@ function signInUser()
     user_consent_box = document.getElementById("user_consent");
     if (user_consent_box.checked)
     {
-        auth2.signIn().then(setCurrentUser);
+        auth2.signIn().then(setUser);
     }
     else
     {
@@ -112,7 +113,7 @@ function signInUser()
 
 function signOutUser()
 {
-    auth2.signOut().then(setCurrentUser);
+    auth2.signOut().then(setUser);
 }
 
 function setUserPanel(profile)
@@ -129,6 +130,7 @@ function setUserPanel(profile)
     }
 }
 
+// User panel links to login page
 function clickUser()
 {
     window.location.href = "/login.html";
@@ -176,4 +178,9 @@ function calculateTimetable(calcInput)
         calcInput.elements.namedItem("unit3").value,
         2 * parseInt(calcInput.elements.namedItem("unit3_hours").value)
     );
+}
+
+function redirectTo(address)
+{
+    window.location.href = address;
 }
