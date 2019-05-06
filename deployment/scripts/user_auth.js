@@ -1,5 +1,3 @@
-window.addEventListener("load", onLoad);
-
 var clientConfig = 
 {
     apiKey: "AIzaSyBKaSN9ivqv_KNCtDEeaXzsYztYTms-qxo",
@@ -9,43 +7,46 @@ var clientConfig =
 };
 
 var auth2;
-var localclient;
-
-//onreadystatechange="if (this.readyState === 'complete') this.onload()">
 
 // Called when Google platform is loaded
 function gapiLoaded()
 {
     // Load auth2 and client libraries, calling initAuth() when complete
-    gapi.load('auth2:client', initAuth);
+    gapi.load('auth2:client', initAuthClient);
 }
 
-function initAuth()   
+function initAuthClient()   
 {
     auth2 = gapi.auth2.init(clientConfig);
-    auth2.then(setCurrentUser, authError);
-    console.log("auth2 ready.");
+    auth2.then(authComplete, printError);
 
-    localclient = gapi.client.init(clientConfig);
-    localclient.then(setClient, authError);
-    
-    console.log("client ready.");
+    let localclient = gapi.client.init(clientConfig);
+    localclient.then(loadCalendarAPI, printError);
 }
 
-function setClient()
+function authComplete()
 {
-    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest").then(listUpcomingEvents);
+    let signedIn = auth2.isSignedIn.get()
 
-      // Listen for sign-in state changes.
-      //auth2.isSignedIn.listen(setCurrentUser);
-
-      // Handle the initial sign-in state.
-      //setCurrentUser();
+    if (signedIn)
+    {
+        console.log("User signed in");
+        setUser(signedIn);
     }
+    else
+    {
+        auth2.isSignedIn.listen(setUser(signedIn))
+    }
+}
 
-function onLoad()
+function loadCalendarAPI()
 {
-    console.log("onLoad - user_auth");
+    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest", calendarLoaded);
+}
+
+function calendarLoaded()
+{
+    console.log("Calendar loaded");
 }
 
 function signInUser()
@@ -53,7 +54,8 @@ function signInUser()
     user_consent_box = document.getElementById("user_consent");
     if (user_consent_box.checked)
     {
-        auth2.signIn().then(setCurrentUser);
+        let user = auth2.signIn();
+        user.then(setUser);
     }
     else
     {
@@ -63,24 +65,25 @@ function signInUser()
 
 function signOutUser()
 {
-    auth2.signOut().then(setCurrentUser);
+    auth2.signOut().then(setUser);
 }
 
-function setCurrentUser()
+function setUser(signedIn)
 {
     if (!auth2)
     {
-        console.log("No auth2 found.");
-        setUserPanel(null);
-        return;
+        console.log("User authenticator not found.")
     }
-    else if (!auth2.isSignedIn.get())
+    else if (!signedIn)
     {
         console.log("No user detected.");
-        if (document.head.dataset.pagename == "user_dash")
+        
+        if (currentPage == "user_dash")
         {
-            window.location.href = "/login.html";
+            redirectTo("/login.html");
         }
+
+
         setUserPanel(null);
         return;
     }
@@ -88,7 +91,7 @@ function setCurrentUser()
     {
         console.log("Signed in user detected.");
 
-        var profile = auth2.currentUser.get().getBasicProfile();
+        let profile = auth2.currentUser.get().getBasicProfile();
         // var id_token = auth2.currentUser.get().getAuthResponse().id_token;
 
         setUserPanel(profile);
@@ -108,7 +111,7 @@ function setCurrentUser()
     }
 }
 
-function authError(err)
+function printError(err)
 {
-    console.log("user_auth.js: " + err);
+    console.log(err);
 }
