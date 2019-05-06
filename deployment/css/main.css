@@ -308,6 +308,14 @@ nav
     overflow: auto;
     margin: 10px 0;
 }
+
+nav li:hover
+{
+    border-right: 0;
+    padding: 8px 10%;
+    width: calc(80% + 8px);
+}
+
 nav li
 {
     padding: 8px 5%;
@@ -315,11 +323,14 @@ nav li
     list-style: none;
     margin: 12px 0;
     border-bottom: 2px solid var(--dark-grey);
+    border-right: 8px solid;
     float: right;
 }
 nav li.active
 {
     width: 70%;
+    padding: 8px 5%;
+    border-right: 8px solid;
 }
 nav a
 {
@@ -334,17 +345,17 @@ nav a:link, nav a:visited
 nav a:nth-child(3n+1)>li
 {
     background-color: var(--yellow);
-    border-right: 8px solid var(--dark-yellow);
+    border-right-color: var(--dark-yellow);
 }
 nav a:nth-child(3n+2)>li
 {
     background-color: var(--green);
-    border-right: 8px solid var(--dark-green);
+    border-right-color: var(--dark-green);
 }
 nav a:nth-child(3n)>li
 {
     background-color: var(--pink);
-    border-right: 8px solid var(--dark-pink);
+    border-right-color: var(--dark-pink);
 }
 
 
@@ -551,21 +562,31 @@ footer p
 
     nav ul
     {
-        
         margin: 0;
         padding: 0;
     }
-
     nav li
     {
         padding: 4% 0% 4% 15px;
-        width: calc(100% - 23px);
+        width: calc(90% - 23px);
         float:left;
         overflow: hide;
         position: relative;
         margin: 5px 0;
     }
-
+    nav li:hover
+    {
+        padding: 4% 0% 4% calc(10% + 15px);
+        width: calc(90% - 23px);
+        border-right: 8px solid;
+    }
+    nav li.active
+    {
+        width: calc(80% - 23px);
+        padding: 4% 0% 4% 15px;
+        border-right: 8px solid;
+    }
+    
     /* +++ Desktop Header +++ */
 
     #home_buttons
