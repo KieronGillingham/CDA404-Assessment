@@ -317,7 +317,7 @@ nav
 
 nav li:hover
 {
-    border-right: 0;
+    border-right: 0 solid;
     padding: 8px 10%;
     width: calc(80% + 8px);
 }
@@ -336,7 +336,7 @@ nav li.active
 {
     width: 70%;
     padding: 8px 5%;
-    border-right: 8px solid;
+    border-right-width: 8px;
 }
 nav a
 {
@@ -577,21 +577,20 @@ footer p
         padding: 4% 0% 4% 15px;
         width: calc(90% - 23px);
         float:left;
-        overflow: hide;
         position: relative;
         margin: 5px 0;
     }
-    nav li:hover
+    nav li:hover, nav a:focus>li
     {
         padding: 4% 0% 4% calc(10% + 15px);
         width: calc(90% - 23px);
-        border-right: 8px solid;
+        border-right-width: 8px;                
     }
     nav li.active
     {
         width: calc(80% - 23px);
         padding: 4% 0% 4% 15px;
-        border-right: 8px solid;
+        border-right-width: 8px;
     }
     
     /* +++ Desktop Header +++ */

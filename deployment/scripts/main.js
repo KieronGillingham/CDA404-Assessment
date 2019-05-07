@@ -140,15 +140,24 @@ function clickUser()
 // Style nav list to show current page
 function navShowCurrentPage()
 {
-    let navTabs = document.querySelectorAll('nav li');
-    for (tab of navTabs)
+    let navTabs = document.querySelectorAll('nav a');
+    for (link of navTabs)
     {
+        let tab = link.firstChild;
         if (tab.dataset.pagename == currentPage)
         {
             tab.classList.add("active");
+            link.tabIndex = "-1";
+            link.addEventListener("click", preventDefault);
+            
             break;
         }
     }
+}
+
+function preventDefault(event)
+{
+    event.preventDefault();
 }
 
 function calculateTimetable(calcInput)
