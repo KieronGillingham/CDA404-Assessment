@@ -288,13 +288,13 @@ form [type="submit"]
     margin: 5px 5%;
     overflow: scroll;
     max-height: 400px;
+    border: solid 2px var(--dark-grey);
 }
 
 table
 {
     width: 300%;
     max-width: 1400px;
-    
     border-collapse: collapse;
 }
 
@@ -480,6 +480,11 @@ footer p
         font-size: 70px;
         left: calc((100vw - var(--desktop-width))/2 + 120px);
         position: absolute;
+    }
+
+    h3
+    {
+        margin-left: 10%;
     }
 
     #user_panel
