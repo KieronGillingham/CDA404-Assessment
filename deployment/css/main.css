@@ -320,13 +320,18 @@ input[type='checkbox']
     cursor: pointer;
 }
 
-ol
+main ol
 {
     margin: 10px 10% 45px;
 }
-ol li
+main ol li
 {
     margin: 16px 0;
+}
+
+main ul
+{
+    margin-left: 8%;
 }
 
 nav
