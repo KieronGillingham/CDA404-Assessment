@@ -33,16 +33,55 @@ function timetableLoad()
     }
     table += "</table>";
     timetableContainer.innerHTML = table;
-    gapi.client.calendar.events.list({'calendarId' : 'primary'}).then(function(response)
+
+    let tNow = new Date();
+    let tNowDay = tNow.getDay();
+    let tWeekBeginDate = tNow.getDate() - tNowDay;
+    let tWeekBegin = new Date();
+    tWeekBegin.setDate(tWeekBeginDate);
+    tWeekBegin.setHours(0);
+    tWeekBegin.setMinutes(0);
+    tWeekBegin.setSeconds(0);
+    let tWeekEnd = new Date(tWeekBegin);
+    tWeekEnd.setDate(tWeekEnd.getDate()+7);
+
+    console.log(tWeekBegin + " - " + tWeekEnd)
+
+    let weeksEvents =
+    {
+        'calendarId' : 'primary',
+        'singleEvents' : true,
+        'timeMin' : tWeekBegin.toISOString(),
+        'timeMax' : tWeekEnd.toISOString()
+    }
+
+    gapi.client.calendar.events.list(weeksEvents).then(function(response)
     {
         let events = response.result.items;
         for (e of events)
         {
-            let date = new Date(e.start.dateTime);
+            let date;
+            if (e.start.date)
+            {
+                date = new Date(e.start.date);
+            }
+            else if (e.start.dateTime)
+            {
+                date = new Date(e.start.dateTime);
+            }
+            
             console.log(date);
             let hour = date.getHours();
             let weekday = date.getDay();
-            timetableContainer.firstChild.firstChild.children[hour+1].children[weekday].style.backgroundColor = "black";
+            let eventStartCell = timetableContainer.firstChild.firstChild.children[hour+1].children[weekday]
+            eventStartCell.innerHTML = e.summary;
+
+            while (hour < new Date(e.end.dateTime).getHours())
+            {
+                let nextCell = timetableContainer.firstChild.firstChild.children[hour+1].children[weekday];
+                nextCell.style.backgroundColor = "#8dd35f";
+                hour += 1;
+            }
         }
     });
     

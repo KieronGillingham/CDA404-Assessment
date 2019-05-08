@@ -286,13 +286,15 @@ form [type="submit"]
 {
     width: 90%;
     margin: 5px 5%;
-    overflow-x: scroll;
+    overflow: scroll;
+    max-height: 400px;
 }
 
 table
 {
     width: 300%;
     max-width: 1400px;
+    
     border-collapse: collapse;
 }
 
@@ -304,9 +306,13 @@ td
     
     width: calc(100%/7);
 
-    height: 15px;
+    height: 30px;
     
     text-align: center;
+
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 12px;
 }
 
 input[type='checkbox']
