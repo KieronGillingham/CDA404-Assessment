@@ -23,9 +23,9 @@ var nav_content =
 
 var footer_content =
 '<ul>' +
-'    <li><a href="/legal.html">Legal</a></li>' + 
-'    <li><a href="/about.html">About Us</a></li>' +
-'    <li><a href="/contact.html">Contact</a></li>' +
+'    <li><a href="/legal.html" data-pagename="legal">Legal</a></li>' + 
+'    <li><a href="/about.html" data-pagename="about">About Us</a></li>' +
+'    <li><a href="/contact.html" data-pagename="contact">Contact</a></li>' +
 '</ul>' +
 '<p>Kieron Gillingham - 2019</p>' +
 '<p>Background Image: Petr Kratochvil</p>';
@@ -46,7 +46,7 @@ function onLoad()
     setContent("footer", footer_content);
 
     // Offset nav element if it links to the current page
-    navShowCurrentPage();
+    navCurrentPage();
 
     user_panel = document.getElementById("user_panel");
     user_panel.addEventListener("click",clickUser); 
@@ -137,9 +137,10 @@ function clickUser()
     window.location.href = "/login.html";
 };
 
-// Style nav list to show current page
-function navShowCurrentPage()
+
+function navCurrentPage()
 {
+    // Disable nav bar for current page
     let navTabs = document.querySelectorAll('nav a');
     for (link of navTabs)
     {
@@ -149,7 +150,19 @@ function navShowCurrentPage()
             tab.classList.add("active");
             link.tabIndex = "-1";
             link.addEventListener("click", preventDefault);
-            
+            break;
+        }
+    }
+
+    // Disable footer nav for current page
+    let footLinks = document.querySelectorAll('footer li a');
+    for (link of footLinks)
+    {
+        if (link.dataset.pagename == currentPage)
+        {
+            link.classList.add("active");
+            link.tabIndex = "-1";
+            link.addEventListener("click", preventDefault);
             break;
         }
     }

@@ -291,14 +291,21 @@ form [type="submit"]
 
 table
 {
-    width: 400%;
+    width: 300%;
+    max-width: 1400px;
+    border-collapse: collapse;
 }
 
-table td
+td
 {
     border: solid black 1px;
+    border-top: solid lightgray 1px;
+    border-bottom: solid lightgray 1px;
+    
+    width: calc(100%/7);
+
     height: 15px;
-    width: 50vw;
+    
     text-align: center;
 }
 
@@ -374,23 +381,10 @@ footer
     border-top: 5px solid var(--white);
     
 }
-
 footer ul
 {
     display: none;
 }
-
-footer a:link, footer a:visited
-{
-    color: var(--white);
-    text-decoration: none;
-}
-
-footer a:hover
-{
-    text-decoration: underline;
-}
-
 footer p
 {
     font-size: 12px;
@@ -578,6 +572,7 @@ footer p
         float:left;
         position: relative;
         margin: 5px 0;
+        cursor: pointer;
     }
     nav li:hover, nav a:focus>li
     {
@@ -590,6 +585,11 @@ footer p
         width: calc(80% - 23px);
         padding: 4% 0% 4% 15px;
         border-right-width: 8px;
+        cursor: default;
+    }
+    nav a
+    {
+        cursor: default;
     }
     
     /* +++ Desktop Header +++ */
@@ -627,5 +627,21 @@ footer p
         list-style: none;
         margin: 10px 0px;
         float: left;
+    }
+
+    footer a:link, footer a:visited
+    {
+        color: var(--white);
+        text-decoration: underline;
+    }
+
+    footer a.active, footer a:hover
+    {
+        text-decoration: none;
+    }
+
+    footer a.active
+    {
+        cursor: default;
     }
 }
