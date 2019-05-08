@@ -320,6 +320,15 @@ input[type='checkbox']
     cursor: pointer;
 }
 
+ol
+{
+    margin: 10px 10% 45px;
+}
+ol li
+{
+    margin: 16px 0;
+}
+
 nav
 {
     width: 100%;
@@ -396,6 +405,34 @@ footer p
     font-size: 12px;
     text-align: center;
     width: 100%;
+}
+
+.message
+{
+    display: block;
+    width: 60vw;
+    max-width: 400px;
+    background-image: var(--paper);
+    padding: 25px;
+    overflow: auto;
+    box-shadow: 2px 5px 4px 3px #4d4d4dbd;
+    margin: 10% auto;
+    position: static;
+}
+.message h1, .message h2
+{
+    font-size: 48px;
+    color: var(--dark-grey);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: initial;
+    height: initial;
+    line-height: initial;
+}
+.message h2
+{
+    font-size: 20px;
 }
 
 /* ------------------------------------------Desktop------------------------------------------ */
