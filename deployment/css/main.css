@@ -9,9 +9,9 @@
     --dark-brown: #934d1f;
     --yellow: #ffcc00;
     --dark-yellow: #d4aa00;
-    --green: #8dd35f;
+    --green: #8ed161;
     --dark-green: #5aa02c;
-    --pink: #de87aa;
+    --pink: #f5a4c4;
     --dark-pink: #d35f8d;
     --paper: linear-gradient(90deg, var(--white), #e9e9e9, #e9e9e9, var(--white));
 
@@ -28,7 +28,7 @@ body
     font-family: 'K2D', sans-serif;
 }
 
-wrapper
+#wrapper
 {
     width: 100%;
     margin: 0;
@@ -171,7 +171,7 @@ h3
     padding: 10px 5%;
     font-family: 'K2D', sans-serif;
     font-size: 30px;
-    color: var(--white);
+    color: var(--dark-grey);
 }
 
 .quick_start_main:first-of-type
