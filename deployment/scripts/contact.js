@@ -16,7 +16,9 @@ function onLoad()
                 message: contactForm.elements.namedItem("message").value
             }
 
-            database.collection("contactForm").add(details)
+            database.collection("contactForm").add(details).then(function(){
+                alert("Your message was sent successfully.");
+            }).catch(printError);
         }
     }
 }

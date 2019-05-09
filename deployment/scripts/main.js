@@ -129,5 +129,6 @@ function redirectTo(address)
 
 function printError(err)
 {
+    prompt("An error has occoured!\n" + err);
     console.log(err);
 }
