@@ -2,10 +2,10 @@ window.addEventListener("load", onLoad);
 
 var header_content =
 '<h1>Tourbill</h1>' +
-'<a href=/index.html><img class="main_logo" src="images/logo.png" alt="Main Tourbill logo."></a>' +
+'<a href=/index.html title="Home."><img class="main_logo" src="images/logo.png" alt="Main Tourbill logo."></a>' +
 '<div id="home_buttons">' +
-'    <a id="sign_in" href="/login.html"><img src="images/user_icon.png" alt=""></a>' +
-'    <a id="quick_start" href="/timetable.html"><img src="images/forward_arrow.png" alt=""></a>' +
+'    <a id="sign_in" href="/login.html" title="Log in."><img src="images/user_icon.png" alt=""></a>' +
+'    <a id="quick_start" href="/timetable.html" title="Get started."><img src="images/forward_arrow.png" alt=""></a>' +
 '</div> <!-- /home_buttons -->' +
 '<section id="user_panel">' +
 '    <img src="images/user_icon.png" alt="">' +
