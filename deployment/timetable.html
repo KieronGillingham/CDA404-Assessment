@@ -13,7 +13,6 @@
         <script src="scripts/calendar.js"></script>
 
         <script src="https://apis.google.com/js/platform.js?onload=gapiLoaded" async defer></script>
-        <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js" async defer></script>
         
         <title>Timetable | Tourbill</title>
     </head>
@@ -27,26 +26,42 @@
                     <div id="table-frame">
                     </div> <!-- /table-frame-->
                     <h2>My Activites</h2>
+                    <p>Enter the units you study below and the hours of guided learning you have for them. Then press 'Calculate' to calculate how long you should study for them each week.</p>
                     <form id="calculator">
-                        <p>
-                            <label>Unit 1:</label>
-                            <input type="text" name="unit1">
-                            <label>Hours/week:</label>
-                            <input type="number" name="unit1_hours" min="0" max="56">
-                        </p>
-                        <p>
-                            <label>Unit 2:</label>
-                            <input type="text" name="unit2">
-                            <label>Hours/week:</label>
-                            <input type="number" name="unit2_hours" min="0" max="56">
-                        </p>
-                        <p>
-                            <label>Unit 3:</label>
-                            <input type="text" name="unit3">
-                            <label>Hours/week:</label>
-                            <input type="number" name="unit3_hours" min="0" max="56">
-                        </p>
-                        <p><input type="submit"></p>
+                        <fieldset>
+                            <legend>Unit 1</legend>
+                            <p>
+                                <label for="unit1_name">Unit Title:</label>
+                                <input type="text" name="unit1_name" id="unit1_name">
+                            </p>
+                            <p>
+                                <label for="unit1_hours">Hours/week:</label>
+                                <input type="number" name="unit1_hours" min="0" max="56">
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Unit 2</legend>
+                            <p>
+                                <label for="unit2_name">Unit Title:</label>
+                                <input type="text" name="unit2_name" id="unit2_name">
+                            </p>
+                            <p>
+                                <label for="unit2_hours">Hours/week:</label>
+                                <input type="number" name="unit2_hours" min="0" max="56">
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Unit 3</legend>
+                            <p>
+                                <label for="unit3_name">Unit Title:</label>
+                                <input type="text" name="unit3" id="unit3_name">
+                            </p>
+                            <p>
+                                <label for="unit3_hours">Hours/week:</label>
+                                <input type="number" name="unit3_hours" min="0" max="56">
+                            </p>
+                        </fieldset>
+                        <p><input type="submit" value="Calculate"></p>
                     </form>
                     <p id="output"></p>
                 </main>
