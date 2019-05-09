@@ -275,7 +275,7 @@ button, form [type="submit"]
     border: 0;
     border-right: solid 8px var(--dark-yellow);
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 5px;
     font-size: 25px;
     font-family: 'K2D', sans-serif;
@@ -317,19 +317,18 @@ form [type="submit"].rightdrop
 
 #profile img
 {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     width: 40%;
     height: auto;
-    float: left;
+    display: block;
 }
 
 #profile p
 {
-    float: left;
     margin: 0;
     padding: 0 5%;
-    width: 50%;
+    width: 90%;
 }
 
 #table-frame
@@ -691,6 +690,22 @@ footer p
         cursor: default;
     }
     
+    #profile img
+    {
+        width: 50%;
+        float: left;
+    }
+    #profile p
+    {
+        width: 40%;
+        margin: 0;
+        float: left;
+    }
+    #profile [type="submit"]
+    {
+        position: relative;
+        top: 20px;
+    }
     /* +++ Desktop Header +++ */
 
     #home_buttons
