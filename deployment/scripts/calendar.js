@@ -9,6 +9,31 @@ function onLoad()
     {
         timetableContainer.innerHTML = "<p>No timetable found.</p>"
     }
+
+    var calcInput = document.getElementById("calculator");
+    if (calcInput)
+    {
+        calcInput.onsubmit = function(e)
+        {
+            preventDefault(e);
+            calculateTimetable(calcInput);
+        }
+    }
+}
+
+function loadCalendarAPI()
+{
+    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest").then(calendarLoaded);
+}
+
+function calendarLoaded()
+{
+    console.log("Calendar loaded");
+    // Check timetable exists, and user is signed in
+    if (timetableContainer && auth2.isSignedIn.get())
+    {
+        timetableLoad();
+    }
 }
 
 function timetableLoad()
@@ -84,5 +109,33 @@ function timetableLoad()
             }
         }
     });
-    
+}
+function calculateTimetable(calcInput)
+{
+    var output = document.getElementById("output");
+
+    output.innerHTML = "";
+
+    function writeLine(unitName, calcTime)
+    {
+        if (unitName && calcTime)
+        {
+            output.innerHTML += "You should spend " + calcTime + " hours studying for " + unitName + " outside of class.<br>"; 
+        }
+    }
+    writeLine
+    (
+        calcInput.elements.namedItem("unit1").value,
+        2 * parseInt(calcInput.elements.namedItem("unit1_hours").value)
+    );
+    writeLine
+    (
+        calcInput.elements.namedItem("unit2").value,
+        2 * parseInt(calcInput.elements.namedItem("unit2_hours").value)
+    );
+    writeLine
+    (
+        calcInput.elements.namedItem("unit3").value,
+        2 * parseInt(calcInput.elements.namedItem("unit3_hours").value)
+    );
 }
