@@ -80,3 +80,5 @@ The Terms of Use and Privacy Policy documents are not guaranteed to be legally b
 The name "Tourbill" is derived from "Tourbillon": a watch component that balances out errors. This is reflected by the gear in the main logo. I felt this was appropriate as the website is focused on time-management.
 
 This website has been produced using Git version control and has been stored on [GitHub](https://github.com/KieronGillingham/CDA404-Assessment).
+
+Google Firebase is used for data-storage and hosting. The site is hosted [here](https://tourbill.firebaseapp.com/).
