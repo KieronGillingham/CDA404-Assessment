@@ -7,10 +7,10 @@ var header_content =
 '    <a id="sign_in" href="/login.html" title="Log in."><img src="images/user_icon.png" alt=""></a>' +
 '    <a id="quick_start" href="/timetable.html" title="Get started."><img src="images/forward_arrow.png" alt=""></a>' +
 '</div> <!-- /home_buttons -->' +
-'<section id="user_panel">' +
+'<div id="user_panel">' +
 '    <img src="images/user_icon.png" alt="">' +
 '    <p>Sign-in</p>' +
-'</section>'
+'</div> <!-- /user_panel -->'
 
 var nav_content =
 '<ul>' +
