@@ -125,17 +125,17 @@ function calculateTimetable(calcInput)
     }
     writeLine
     (
-        calcInput.elements.namedItem("unit1").value,
+        calcInput.elements.namedItem("unit1_name").value,
         2 * parseInt(calcInput.elements.namedItem("unit1_hours").value)
     );
     writeLine
     (
-        calcInput.elements.namedItem("unit2").value,
+        calcInput.elements.namedItem("unit2_name").value,
         2 * parseInt(calcInput.elements.namedItem("unit2_hours").value)
     );
     writeLine
     (
-        calcInput.elements.namedItem("unit3").value,
+        calcInput.elements.namedItem("unit3_name").value,
         2 * parseInt(calcInput.elements.namedItem("unit3_hours").value)
     );
 }
