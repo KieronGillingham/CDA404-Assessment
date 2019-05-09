@@ -11,9 +11,10 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/user_auth.js"></script>
         <script src="scripts/firestore.js"></script>
+        <script src="scripts/profile.js"></script>
 
-        <script src="/__/firebase/5.10.0/firebase-app.js"></script>
-        <script src="/__/firebase/5.10.0/firebase-firestore.js?onload=firebaseLoaded"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
         <script src="https://apis.google.com/js/platform.js?onload=gapiLoaded" async defer></script>
         
         <title>Dashboard | Tourbill</title>
@@ -26,15 +27,27 @@
                 <main>
                     <h2>Profile</h2>
                     <form id="profile">
-                        <img src="images/user_icon.png" alt="User profile picture.">
-                        <p><label>Name:</label><br><input type="text" name="name"></p>
-                        <p><label>E-Mail:</label><br><input type="text" name="email"></p>
-                        <p><label>Location:</label><br><input type="text" name="location"></p>
-                        <p><label>Place of Study:</label><br><input type="text" name="place-of-study"></p>
-                        <input type="submit">
+                        <fieldset>
+                            <img src="images/user_icon.png" alt="User profile picture.">
+                            <p>
+                                <label for="name">Name:</label><br>
+                                <input type="text" id="name" name="name">
+                            </p>
+                            <p>
+                                <label for="email">E-Mail:</label><br>
+                                <input type="email" id="email" name="email">
+                            </p>
+                            <p>
+                                <label for="location">Location:</label><br>
+                                <input type="text" id="location" name="location">
+                            </p>
+                            <p>
+                                <label for="place-of-study">Place of Study:</label><br>
+                                <input type="text" id="place-of-study" name="place-of-study">
+                            </p>
+                            <input type="submit">
+                        </fieldset>
                     </form>
-                    <h3>View Timetable</h3>
-                    <h3>My Activities</h3>
                 </main>
                 <nav class="nav"></nav>
             </div>

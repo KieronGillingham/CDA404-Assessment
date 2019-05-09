@@ -1,5 +1,7 @@
 window.addEventListener("load", onLoad);
 
+var database;
+
 var apiConfig =
 {
     apiKey: "AIzaSyBKaSN9ivqv_KNCtDEeaXzsYztYTms-qxo",
@@ -7,14 +9,8 @@ var apiConfig =
     projectId: "tourbill"
 };
 
-function firebaseLoaded()
-{
-    firebase.initializeApp(apiConfig);
-    var database = firebase.firestore();
-    console.log(database)
-}
-
 function onLoad()
 {
-    console.log("onLoad - firestore.js");
+    firebase.initializeApp(apiConfig);
+    database = firebase.firestore();
 }

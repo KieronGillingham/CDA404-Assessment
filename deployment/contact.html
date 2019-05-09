@@ -10,9 +10,13 @@
 
         <script src="scripts/main.js"></script>
         <script src="scripts/user_auth.js"></script>
+        <script src="scripts/contact.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+        <script src="scripts/firestore.js"></script>
 
         <script src="https://apis.google.com/js/platform.js?onload=gapiLoaded" async defer></script>
-
+        
         <title>Contact us | Tourbill</title>
     </head>
     <body>
@@ -23,28 +27,30 @@
                 <main>
                     <h2>Contact Us</h2>
                     <p>We will try to respond within two (2) business days.</p>
-                    <form>
-                        <p>
-                            <label>Name:</label>
-                            <input type="text">
-                        </p>
-                        <p>
-                            <label>E-Mail:</label>
-                            <input type="text">
-                        </p>
-                        <p>
-                            <label>Topic:</label>
-                            <select name="topic">
-                                <option value="User Account">User Account</option>
+                    <form id="contact">
+                        <fieldset>
+                            <legend>Your details</legend>
+                            <p>
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </p>
+                            <p>
+                                <label for="email">E-Mail:</label>
+                                <input type="email" id="email" name="email" required>
+                            </p>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Message</legend>
+                            <label for="topic">Topic:</label>
+                            <select id="topic" name="topic">
+                                <option value="UserAccount">User Account</option>
                                 <option value="Feedback">Feedback</option>
+                                <option value="Privacy">Privacy</option>
                                 <option value="Other">Other</option>
                             </select>
-                        </p>
-                        <p>
-                            <label>Message:</label><br>
-                            <textarea></textarea>
-                        </p>
-                        <input type="submit">
+                            <textarea id="message" name="message" required></textarea>
+                        </fieldset>
+                        <input type="submit" value="Send">
                     </form>
                 </main>
                 <nav class="nav"></nav>

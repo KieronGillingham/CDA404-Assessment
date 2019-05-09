@@ -94,7 +94,7 @@ h1
 {
     width: calc(100% - 20vw);
     height: calc(100vw/3);
-    max-height: 30%; 
+    max-height: 20%; 
     position: absolute;
     bottom: 0;
     margin: 10vw;
@@ -158,7 +158,7 @@ h3
     margin: auto;
     padding: 30px 0 20px;
     text-align: left;
-    width: 80vw;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -231,14 +231,55 @@ main img
     width: 80%;
 }
 
+form fieldset
+{
+    margin: 10px 10%;
+    width: calc(80% - 1.5em);
+}
+
+form p
+{
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+}
+
+form [type="text"], form [type="email"]
+{
+    width: 70%;
+    float: right;
+}
+form [type="number"]
+{
+    width: 20%;
+    float: right;
+    margin-right: 50%;
+}
+form input:invalid
+{
+    border-color: var(--pink);
+    border-style: dashed;
+}
+
 form textarea
 {
     width: 100%;
+    min-height: 84px;
+    margin: 10px 0 0;
+    padding-bottom: 20px;
+    resize: vertical;
 }
 
 form [type="submit"]
 {
-    /*float: left;*/
+    float: right;
+    right: calc(10% + 23px);
+    bottom: 30px;
+    position: relative;
+    padding: 5px;
+    font-size: 25px;
+    width: 30%;
+    font-family: 'K2D', sans-serif;
 }
 
 #sign-in-box div

@@ -35,8 +35,6 @@ var currentPage;
 
 function onLoad()
 {
-    console.log("onLoad - main.js");
-
     // Get name of current page
     currentPage = document.head.dataset.pagename;
 
@@ -49,38 +47,7 @@ function onLoad()
     navCurrentPage();
 
     user_panel = document.getElementById("user_panel");
-    user_panel.addEventListener("click",clickUser); 
-
-    if (currentPage == "timetable")
-    {
-        var calcInput = document.getElementById("calculator");
-        if (calcInput)
-        {
-            calcInput.onsubmit = function(e)
-            {
-                e.preventDefault();
-                calculateTimetable(calcInput);
-            }
-        }
-    }
-
-    if (currentPage == "user_dash")
-    {
-        var profileInput = document.getElementById("profile");
-        if (profileInput)
-        {
-            profileInput.onsubmit = function(e)
-            {
-                e.preventDefault();
-                database.collection("users").add({
-                    name: profileInput.elements.namedItem("name").value,
-                    email: profileInput.elements.namedItem("email").value,
-                    location: profileInput.elements.namedItem("location").value,
-                    placeofstudy: profileInput.elements.namedItem("place-of-study").value,
-                })
-            }
-        }
-    }
+    user_panel.addEventListener("click", clickUser); 
 
     for (e of document.getElementsByClassName("quick_start_main"))
     {
@@ -97,24 +64,6 @@ function setContent(HTMLelement, content)
     {
         e.innerHTML = content;
     }
-}
-
-function signInUser()
-{
-    user_consent_box = document.getElementById("user_consent");
-    if (user_consent_box.checked)
-    {
-        auth2.signIn().then(setUser);
-    }
-    else
-    {
-        alert("Please accept the Terms of Use and Privacy Policy before continuing.")
-    }
-}
-
-function signOutUser()
-{
-    auth2.signOut().then(setUser);
 }
 
 function setUserPanel(profile)
@@ -173,37 +122,12 @@ function preventDefault(event)
     event.preventDefault();
 }
 
-function calculateTimetable(calcInput)
-{
-    var output = document.getElementById("output");
-
-    output.innerHTML = "";
-
-    function writeLine(unitName, calcTime)
-    {
-        if (unitName && calcTime)
-        {
-            output.innerHTML += "You should spend " + calcTime + " hours studying for " + unitName + " outside of class.<br>"; 
-        }
-    }
-    writeLine
-    (
-        calcInput.elements.namedItem("unit1").value,
-        2 * parseInt(calcInput.elements.namedItem("unit1_hours").value)
-    );
-    writeLine
-    (
-        calcInput.elements.namedItem("unit2").value,
-        2 * parseInt(calcInput.elements.namedItem("unit2_hours").value)
-    );
-    writeLine
-    (
-        calcInput.elements.namedItem("unit3").value,
-        2 * parseInt(calcInput.elements.namedItem("unit3_hours").value)
-    );
-}
-
 function redirectTo(address)
 {
     window.location.href = address;
+}
+
+function printError(err)
+{
+    console.log(err);
 }

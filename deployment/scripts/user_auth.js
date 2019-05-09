@@ -21,8 +21,11 @@ function initAuthClient()
     auth2 = gapi.auth2.init(clientConfig);
     auth2.then(authComplete, printError);
 
-    localclient = gapi.client.init(clientConfig);
-    localclient.then(loadCalendarAPI, printError);
+    if (currentPage == "timetable")
+    {
+        localclient = gapi.client.init(clientConfig);
+        localclient.then(loadCalendarAPI, printError);
+    }
 }
 
 function authComplete()
@@ -37,21 +40,6 @@ function authComplete()
     else
     {
         auth2.isSignedIn.listen(setUser(signedIn))
-    }
-}
-
-function loadCalendarAPI()
-{
-    gapi.client.load("https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest").then(calendarLoaded);
-}
-
-function calendarLoaded()
-{
-    console.log("Calendar loaded");
-    // Check timetable exists, and user is signed in
-    if (timetableContainer && auth2.isSignedIn.get())
-    {
-        timetableLoad();
     }
 }
 
@@ -102,31 +90,40 @@ function setUser(signedIn)
 
         setUserPanel(profile);
 
-        var profileSection = document.getElementById("profile");
-        if (profileSection)
+        if (currentPage == "user_dash")
         {
-            var profilePicture = profileSection.children[0];
-            var profileName = profileSection.children[1].children[2];
-            var profileEmail = profileSection.children[2].children[2];
+            let profileSection = document.getElementById("profile");
+            if (profileSection)
+            {
+                let image = profileSection.querySelector("img");
+                let name = profileSection.querySelectorAll("input")[0];
+                let email = profileSection.querySelectorAll("input")[1];
 
-            profilePicture.src = profile.getImageUrl();
-            profilePicture.alt = "The profile picture of " + profile.getName() + ".";
-            profileName.value = profile.getName();
-            profileEmail.value = profile.getEmail();
+                image.src = profile.getImageUrl();
+                image.alt = "The profile picture of " + profile.getName() + ".";
+                name.value = profile.getName();
+                email.value = profile.getEmail();
+            }
         }
-
-        // Check timetable exists and calender is loaded
-        if (timetableContainer && gapi.client.calendar)
+        if (currentPage == "contact")
         {
-            timetableLoad();
-        }
+            let contactForm = document.getElementById("contact");
+            if (contactForm)
+            {
+                let name = contactForm.querySelectorAll("input")[0];
+                var email = contactForm.querySelectorAll("input")[1];
 
+                name.value = profile.getName();
+                email.value = profile.getEmail();
+            }
+        }
+        if(currentPage == "timetable")
+        {
+            // Check timetable exists and calender is loaded
+            if (timetableContainer && gapi.client.calendar)
+            {
+                timetableLoad();
+            }
+        }
     }
-
-
-}
-
-function printError(err)
-{
-    console.log(err);
 }
